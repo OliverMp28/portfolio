@@ -1,9 +1,34 @@
 @import "tailwindcss";
 
+/* @tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-sans text-gray-800;
+  }
+
+  p {
+    @apply text-base leading-relaxed;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold text-gray-900;
+  }
+
+  a {
+    @apply text-accent hover:underline;
+  }
+} */
+
+
 :root {
 
   /* scroll-behavior: smooth */
 }
+
+
 /*
 a {
   font-weight: 500;

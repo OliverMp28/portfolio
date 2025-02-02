@@ -1,51 +1,45 @@
-import Navbar from './components/Navbar';
-import Hero from './sections/Hero';
-import Projects from './sections/Projects';
-import Skills from './sections/Skills';
-import Contact from './sections/Contact';
-// import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-// import './App.css'
-
-// function App() {
-//   const [count, setCount] = useState(0)
-
-//   return (
-//     <>
-//       <div>
-//         <a href="https://vite.dev" target="_blank">
-//           <img src={viteLogo} className="logo" alt="Vite logo" />
-//         </a>
-//         <a href="https://react.dev" target="_blank">
-//           <img src={reactLogo} className="logo react" alt="React logo" />
-//         </a>
-//       </div>
-//       <h1>Vite + React</h1>
-//       <div className="card">
-//         <button onClick={() => setCount((count) => count + 1)}>
-//           count is {count}
-//         </button>
-//         <p>
-//           Edit <code>src/App.jsx</code> and save to test HMR
-//         </p>
-//       </div>
-//       <p className="read-the-docs">
-//         Click on the Vite and React logos to learn more
-//       </p>
-//     </>
-//   )
-// }
+// App.jsx
+import { useState, useEffect } from "react";
+import Navbar from "./components/Navbar";
+import Hero from "./sections/Hero";
+import Projects from "./sections/Projects";
+import Skills from "./sections/Skills";
+import Contact from "./sections/Contact";
 
 function App() {
+  const [fadeOpacity, setFadeOpacity] = useState(1);
+  const [selectedTech, setSelectedTech] = useState("");
+
+  useEffect(() => {
+    const handleScroll = () => {
+      // Obtén la posición del scroll vertical
+      const scrollY = window.scrollY;
+      // Ajusta la opacidad: cuando el scroll es 0, opacidad 1; a medida que se hace scroll, opacidad baja hasta 0
+      const newOpacity = Math.max(0, 2 - scrollY / 400);
+      setFadeOpacity(newOpacity);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <div className="min-h-screen bg-gray-50">
       <Navbar />
       <Hero />
-      <Projects />
-      <Skills />
+      {/* Pasamos la función y el estado a Skills */}
+      <Skills 
+        onSelectTech={(tech) => setSelectedTech(tech)} 
+        selectedTech={selectedTech}
+      />
+      {/* En Projects se filtra según selectedTech */}
+      <Projects selectedTech={selectedTech} />
       <Contact />
-    
+
+      <div
+        style={{ opacity: fadeOpacity }}
+        className="pointer-events-none fixed bottom-0 left-0 w-full h-20 bg-gradient-to-t from-gray-50  transition-opacity duration-300"
+      />
     </div>
   );
 }
