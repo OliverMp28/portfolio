@@ -1,32 +1,24 @@
 @import "tailwindcss";
 
-/* @tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-@layer base {
-  body {
-    @apply font-sans text-gray-800;
-  }
-
-  p {
-    @apply text-base leading-relaxed;
-  }
-
-  h1, h2, h3, h4, h5, h6 {
-    @apply font-bold text-gray-900;
-  }
-
-  a {
-    @apply text-accent hover:underline;
-  }
-} */
-
 
 :root {
   scroll-behavior: smooth;
   scroll-padding-top: 4rem;
 }
+
+/* Estado inicial: el elemento está oculto y desplazado un poco hacia abajo */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.7s ease-out;
+}
+
+/* Estado final: cuando el elemento es visible */
+.animate-reveal {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 
 
 /*

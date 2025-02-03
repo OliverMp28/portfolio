@@ -25,8 +25,8 @@ const Skills = ({ onSelectTech, selectedTech }) => {
       : skillsData.filter((skill) => skill.category === selectedCategory);
 
   return (
-    <section id="habilidades" className="py-12 bg-gray-50 border border-red-500">
-      <h2 className="text-3xl font-bold text-center text-gray-900">Habilidades</h2>
+    <section id="habilidades" className="py-12 bg-gray-50 dark:bg-gray-900 scroll-reveal">
+      <h2 className="text-3xl font-bold text-center text-gray-900 dark:text-gray-200">Habilidades</h2>
 
       {/* Barra de categorías */}
       <div className="flex justify-center gap-4 mt-6">
@@ -38,7 +38,7 @@ const Skills = ({ onSelectTech, selectedTech }) => {
               // Opcional: Puedes resetear el filtro de proyecto al cambiar de categoría
               // onSelectTech("");
             }}
-            className={`px-4 py-2 rounded transition-colors ${
+            className={`px-4 py-2 rounded cursor-pointer transition-colors ${
               selectedCategory === cat
                 ? "bg-indigo-600 text-white"
                 : "bg-gray-200 text-gray-800 hover:bg-indigo-400"
@@ -55,15 +55,18 @@ const Skills = ({ onSelectTech, selectedTech }) => {
           <div
             key={skill.name}
             className={`flex flex-col items-center cursor-pointer transition-transform transform hover:scale-105 ${
-              selectedTech === skill.name ? "ring-2 ring-indigo-500" : ""
+              selectedTech === skill.name ? "ring-2 ring-indigo-500 rounded bg-gray-50 dark:bg-indigo-900" : ""
             }`}
             // Al hacer click, si ya está seleccionado, lo deselecciona (vuelve a mostrar todos)
-            onClick={() =>
-              onSelectTech(selectedTech === skill.name ? "" : skill.name)
+            onClick={() =>{
+                onSelectTech(selectedTech === skill.name ? "" : skill.name)
+                document.getElementById('habilidades').scrollIntoView({ behavior: 'smooth' })
+              }
             }
+            
           >
             {skill.icon}
-            <p className="mt-2 text-sm text-gray-600">{skill.name}</p>
+            <p className="mt-2 text-sm text-gray-600 dark:text-gray-200">{skill.name}</p>
           </div>
         ))}
       </div>

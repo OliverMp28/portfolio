@@ -39,15 +39,15 @@ const ProjectCard = ({ project }) => {
   const [expanded, setExpanded] = useState(false);
 
   return (
-    <div id="proyectos" className="flex flex-col p-6 bg-gray-50 rounded-lg shadow-md hover:shadow-xl transition-shadow">
+    <div className="flex flex-col p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow">
       <img
         src={project.image}
         alt={`Proyecto ${project.id}`}
         className="w-full h-48 object-cover rounded-md"
       />
-      <div className="flex flex-col flex-grow mt-4">
+      <div className="flex flex-col flex-grow mt-4 ">
         <h3 className="text-xl font-semibold text-gray-900">{project.title}</h3>
-        <p className="mt-2 text-gray-600">
+        <p className="mt-2 text-gray-600 dark:text-gray-300">
           {expanded ? project.fullDescription : project.description}
         </p>
         <div className="mt-4 flex flex-wrap gap-2">
@@ -63,7 +63,7 @@ const ProjectCard = ({ project }) => {
         <div className="mt-auto pt-4 border-t flex items-center justify-between">
           <button
             onClick={() => setExpanded(!expanded)}
-            className="text-indigo-600 hover:underline focus:outline-none"
+            className="text-indigo-600 hover:underline focus:outline-none dark:text-indigo-400"
           >
             {expanded ? "Ver menos" : "Ver más"}
           </button>
@@ -72,7 +72,7 @@ const ProjectCard = ({ project }) => {
               href={project.link}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-indigo-600 hover:underline text-sm"
+              className="text-indigo-600 hover:underline text-sm dark:text-indigo-400"
             >
               Ver Repositorio
             </a>
@@ -92,8 +92,8 @@ const Projects = ({ selectedTech }) => {
     : projectsData;
 
   return (
-    <section id="projects" className="py-12 bg-white">
-      <h2 className="text-3xl font-bold text-center text-gray-900">Proyectos</h2>
+    <section id="proyectos" className="py-12 bg-white bg-gray-50 dark:bg-gray-900 dark:text-gray-200 scroll-reveal">
+      <h2 className="text-3xl font-bold text-center text-gray-900 dark:text-gray-200">Proyectos</h2>
       <div className="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-6">
         {filteredProjects.map((project) => (
           <ProjectCard key={project.id} project={project} />

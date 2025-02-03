@@ -15,7 +15,7 @@ const Hero = () => {
       >
         <div className="relative inline-block group">
           <img
-            src="/images/avatar.jpg"
+            src="./src/assets/img/foto1.jpg"
             alt="Oliver Llauca"
             className="w-48 h-48 rounded-full border-4 border-white shadow-xl group-hover:scale-105 transition-all duration-300"
           />
@@ -25,7 +25,7 @@ const Hero = () => {
           ></div>
         </div>
         <h1 className="text-5xl font-bold bg-gradient-to-r from-indigo-600 to-blue-500 bg-clip-text text-transparent">
-          Oliver Llauca
+          Oliver Llauca Galvez
         </h1>
         <p className="text-xl text-gray-600 dark:text-gray-300">Programador FullStack | Software Developer</p>
         <div className="flex justify-center space-x-4">
@@ -49,9 +49,16 @@ const Hero = () => {
             <FaEnvelope size={24} />
           </a>
         </div>
-        <button className="mt-6 px-6 py-3 bg-indigo-600 text-white rounded-full hover:bg-indigo-700 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+        <button
+          className="mt-6 px-6 py-3 bg-indigo-600 text-white rounded-full hover:bg-indigo-700 transition-colors duration-300 focus:outline-none focus:ring-2 
+          focus:ring-indigo-500 focus:ring-offset-2 cursor-pointer"
+          onClick={() => {
+            document.getElementById('proyectos').scrollIntoView({ behavior: 'smooth' });
+          }}
+        >
           Ver mi trabajo
         </button>
+
       </div>
     </section>
   )

@@ -7,24 +7,32 @@ import Skills from "./sections/Skills";
 import Contact from "./sections/Contact";
 
 function App() {
-  const [fadeOpacity, setFadeOpacity] = useState(1);
   const [selectedTech, setSelectedTech] = useState("");
 
+  // Efecto para el scroll reveal
   useEffect(() => {
-    const handleScroll = () => {
-      // Obtén la posición del scroll vertical
-      const scrollY = window.scrollY;
-      // Ajusta la opacidad: cuando el scroll es 0, opacidad 1; a medida que se hace scroll, opacidad baja hasta 0
-      const newOpacity = Math.max(0, 2 - scrollY / 400);
-      setFadeOpacity(newOpacity);
-    };
+    const revealElements = document.querySelectorAll(".scroll-reveal");
+    const observer = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("animate-reveal");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+    revealElements.forEach((el) => observer.observe(el));
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    // Limpieza del observer
+    return () => {
+      revealElements.forEach((el) => observer.unobserve(el));
+    };
   }, []);
 
   return (
-    <div className="min-h-screen bg-gray-50 scroll-smooth" id="inicio">
+    <div className="min-h-screen bg-gray-50 scroll-smooth dark:bg-gray-900" id="inicio">
       <Navbar />
       <Hero />
       <Skills 
@@ -33,11 +41,6 @@ function App() {
       />
       <Projects selectedTech={selectedTech} />
       <Contact />
-
-      <div
-        style={{ opacity: fadeOpacity }}
-        className="pointer-events-none fixed bottom-0 left-0 w-full h-20 bg-gradient-to-t from-gray-50  transition-opacity duration-300"
-      />
     </div>
   );
 }
