@@ -39,7 +39,7 @@ const ProjectCard = ({ project }) => {
   const [expanded, setExpanded] = useState(false);
 
   return (
-    <div className="flex flex-col p-6 bg-gray-50 rounded-lg shadow-md hover:shadow-xl transition-shadow">
+    <div id="proyectos" className="flex flex-col p-6 bg-gray-50 rounded-lg shadow-md hover:shadow-xl transition-shadow">
       <img
         src={project.image}
         alt={`Proyecto ${project.id}`}

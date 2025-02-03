@@ -2,7 +2,7 @@ import { FaGithub, FaLinkedin } from "react-icons/fa";
 
 
 const Contact = () => (
-    <section id="contact" className="py-12 bg-blue-600">
+    <section id="contacto" className="py-12 bg-blue-600">
       <h2 className="text-3xl font-bold text-center text-white">Contacto</h2>
       <div className="mt-8 flex justify-center gap-6">
         <a

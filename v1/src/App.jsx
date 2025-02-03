@@ -24,15 +24,13 @@ function App() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 scroll-smooth" id="inicio">
       <Navbar />
       <Hero />
-      {/* Pasamos la función y el estado a Skills */}
       <Skills 
         onSelectTech={(tech) => setSelectedTech(tech)} 
         selectedTech={selectedTech}
       />
-      {/* En Projects se filtra según selectedTech */}
       <Projects selectedTech={selectedTech} />
       <Contact />
 
