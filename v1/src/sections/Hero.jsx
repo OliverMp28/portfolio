@@ -30,7 +30,7 @@ const Hero = () => {
         <p className="text-xl text-gray-600 dark:text-gray-300">Programador FullStack | Software Developer</p>
         <div className="flex justify-center space-x-4">
           <a
-            href="https://github.com/yourusername"
+            href="https://github.com/OliverMp28"
             target="_blank"
             rel="noopener noreferrer"
             className="text-gray-600 hover:text-indigo-600 transition-colors"
@@ -38,14 +38,14 @@ const Hero = () => {
             <FaGithub size={24} />
           </a>
           <a
-            href="https://linkedin.com/in/yourusername"
+            href="https://www.linkedin.com/in/edwin-llauca-galvez-233417295/"
             target="_blank"
             rel="noopener noreferrer"
             className="text-gray-600 hover:text-indigo-600 transition-colors"
           >
             <FaLinkedin size={24} />
           </a>
-          <a href="mailto:your@email.com" className="text-gray-600 hover:text-indigo-600 transition-colors">
+          <a href="mailto:oliverllauca@gmail.com" className="text-gray-600 hover:text-indigo-600 transition-colors">
             <FaEnvelope size={24} />
           </a>
         </div>

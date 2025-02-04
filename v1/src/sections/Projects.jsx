@@ -4,39 +4,53 @@ import { FaGithub, FaExpandAlt, FaCompressAlt, FaGlobe, FaExternalLinkAlt } from
 const projectsData = [
   {
     id: 1,
-    title: "Proyecto 1",
-    description: "Descripción breve del proyecto.",
+    title: "Daino",
+    description: "Juego del dinosaurio",
     fullDescription:
-      "Esta es una descripción extendida del Proyecto 1, donde se explica en detalle la funcionalidad, tecnologías utilizadas y el proceso de desarrollo.",
-    image: "/images/project1.jpg",
-    technologies: ["React", "Tailwind"],
+      "Este es el juego del dinosaurio de google adaptado a web con html, css, js y php. Fue el primer proyecto que hice por gusto propio y por curiosidad de aprender, desarrollado en mis inicios",
+    image: "./src/assets/img/daino2.png",
+    technologies: ["HTML", "CSS", "JavaScript", "PHP", "MySQL"],
     links: [
-      { type: "github", url: "https://github.com/tuusuario/proyecto1" },
-      { type: "web", url: "https://proyecto1.com" },
+      { type: "github", url: "https://github.com/OliverMp28/olivermppr" },
     ],
   },
   {
     id: 2,
-    title: "Proyecto 2",
-    description: "Otro proyecto que usa HTML, CSS y JavaScript.",
+    title: "Stellargia",
+    description: "App android sobre el espacio.",
     fullDescription:
-      "En este proyecto se implementa una interfaz web usando HTML, CSS y JavaScript, con un enfoque en la usabilidad y un diseño responsivo.",
-    image: "/images/project2.jpg",
-    technologies: ["HTML", "CSS", "JavaScript"],
+      "Esta es una app echa en android studio, fue una app basica a fin de aprender y probar el entorno multiplataforma, esta app esta enfocada a mostrar datos curiosos de planetas y constelaciones. ",
+    image: "./src/assets/img/Stellargia.jpg",
+    technologies: ["Android Studio"],
     links: [
-      { type: "github", url: "https://github.com/tuusuario/proyecto2" },
-      { type: "drive", url: "https://drive.google.com/file/d/..." },
+      { type: "drive", url: "https://drive.google.com/file/d/1g98UHf-8d10PhX9Q9FE6trH8AA9SDMLL/view?usp=drive_link" },
     ],
   },
   {
     id: 3,
-    title: "Proyecto 3",
-    description: "Proyecto backend hecho con Node.js y Python.",
+    title: "Tout play cam detection",
+    description: "web de minijuegos con deteccion de gestios por camara.",
     fullDescription:
-      "Proyecto 3 es un servicio backend desarrollado en Node.js y Python, que incluye API REST y procesamiento de datos en tiempo real.",
-    image: "/images/project3.jpg",
-    technologies: ["Node.js", "Python"],
-    links: [{ type: "web", url: "https://proyecto3.com" }],
+      "Basada en la libreria mediapipe, esta web fue echa a fin de probar el potencial de la deteccion por camara, adaptandola a mover ciertos personajes o controles con los gestos de rostro",
+    image: "./src/assets/img/tout3.png",
+    technologies: ["HTML", "Bootstrap", "jQuery", "PHP", "Mediapipe", "MySQL"],
+    links: [
+      // { type: "web", url: "https://proyecto3.com" },
+      { type: "github", url: "https://github.com/OliverMp28/proyecto_vision" },
+    ],
+  },
+  {
+    id: 4,
+    title: "Web tienda de perfumes",
+    description: "Tienda basica para venta de perfumes.",
+    fullDescription:
+      "Esta web fue echa para un vendedor de perfumes arabes echo en wordpress",
+    image: "./src/assets/img/webperfumes.png",
+    technologies: ["WordPress"],
+    links: [
+      { type: "web", url: "https://esenciadeoriente.com/" },
+      // { type: "github", url: "https://github.com/OliverMp28/proyecto_vision" },
+    ],
   },
   // Agrega más proyectos según necesites
 ]

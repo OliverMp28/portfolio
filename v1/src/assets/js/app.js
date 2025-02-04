@@ -7,11 +7,11 @@ document.addEventListener("DOMContentLoaded", () => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add("animate-reveal");
-            observer.unobserve(entry.target); // Deja de observar una vez revelado
+            observer.unobserve(entry.target);
           }
         });
       },
-      { threshold: 0.3 } // Ajusta el umbral según tus necesidades
+      { threshold: 0.3 }
     );
     
     revealElements.forEach((el) => observer.observe(el));

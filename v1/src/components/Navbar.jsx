@@ -27,7 +27,7 @@ const Navbar = () => {
           Oliver Llauca
         </a>
         <div className="hidden md:flex gap-6">
-          {["inicio", "proyectos", "habilidades", "contacto"].map((link) => (
+          {["inicio", "estudios", "habilidades", "proyectos", "contacto"].map((link) => (
             <a
               key={link}
               href={`#${link}`}
@@ -50,7 +50,7 @@ const Navbar = () => {
       {isOpen && (
         <div className="md:hidden bg-white/90 dark:bg-gray-800/90 backdrop-blur-lg shadow-lg">
           <ul className="flex flex-col items-center py-4">
-            {["inicio", "proyectos", "habilidades", "contacto"].map((link) => (
+            {["inicio", "estudios", "habilidades", "proyectos", "contacto"].map((link) => (
               <li key={link} className="py-2">
                 <a
                   href={`#${link}`}

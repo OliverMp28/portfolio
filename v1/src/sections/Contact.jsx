@@ -1,10 +1,10 @@
 import { FaGithub, FaLinkedin, FaEnvelope, FaTwitter } from "react-icons/fa"
 
 const contactLinks = [
-  { icon: FaGithub, url: "https://github.com/tuusuario", label: "GitHub" },
-  { icon: FaLinkedin, url: "https://linkedin.com/in/tuusuario", label: "LinkedIn" },
-  { icon: FaEnvelope, url: "mailto:tu@email.com", label: "Email" },
-  { icon: FaTwitter, url: "https://twitter.com/tuusuario", label: "Twitter" },
+  { icon: FaGithub, url: "https://github.com/OliverMp28", label: "GitHub" },
+  { icon: FaLinkedin, url: "https://www.linkedin.com/in/edwin-llauca-galvez-233417295/", label: "LinkedIn" },
+  { icon: FaEnvelope, url: "mailto:oliverllauca@gmail.com", label: "Email" },
+  // { icon: FaTwitter, url: "https://twitter.com/tusuario", label: "Twitter" },
 ]
 
 const Contact = () => (

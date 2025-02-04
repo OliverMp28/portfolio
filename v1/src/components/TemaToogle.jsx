@@ -14,6 +14,7 @@ const TemaToogle = () => {
       setDarkMode(false);
       document.documentElement.classList.remove("dark");
     } else {
+      
       // No hay preferencia almacenada, usar la del sistema
       const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
       setDarkMode(prefersDark);

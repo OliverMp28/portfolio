@@ -1,18 +1,38 @@
 // Skills.jsx
 import { useState } from "react";
-import { FaReact, FaHtml5, FaCss3Alt, FaJsSquare, FaNode, FaPython } from "react-icons/fa";
+import { FaReact, FaHtml5, FaJsSquare, FaJava } from "react-icons/fa";
+import { 
+  SiCss3, 
+  SiPhp, 
+  SiGit, 
+  SiWordpress, 
+  SiTailwindcss, 
+  SiJquery, 
+  SiBootstrap, 
+  SiMysql, 
+  SiAndroidstudio, 
+  SiMediapipe 
+} from "react-icons/si";
 
 const skillsData = [
   { name: "React", category: "Frontend", icon: <FaReact className="text-4xl text-blue-600" /> },
   { name: "HTML", category: "Frontend", icon: <FaHtml5 className="text-4xl text-orange-600" /> },
-  { name: "CSS", category: "Frontend", icon: <FaCss3Alt className="text-4xl text-blue-500" /> },
+  { name: "CSS", category: "Frontend", icon: <SiCss3 className="text-4xl text-purple-600" /> },
   { name: "JavaScript", category: "Frontend", icon: <FaJsSquare className="text-4xl text-yellow-500" /> },
-  { name: "Node.js", category: "Backend", icon: <FaNode className="text-4xl text-green-600" /> },
-  { name: "Python", category: "Backend", icon: <FaPython className="text-4xl text-blue-400" /> },
-  // Puedes agregar más skills según necesites
+  { name: "PHP", category: "Backend", icon: <SiPhp className="text-4xl text-indigo-600" /> },
+  { name: "Java", category: "Backend", icon: <FaJava className="text-4xl text-red-600" /> },
+  { name: "MySQL", category: "Backend", icon: <SiMysql className="text-4xl text-sky-500" /> },
+  { name: "Tailwind", category: "Frontend", icon: <SiTailwindcss className="text-4xl text-teal-500" /> },
+  { name: "jQuery", category: "Frontend", icon: <SiJquery className="text-4xl text-blue-400" /> },
+  { name: "Bootstrap", category: "Frontend", icon: <SiBootstrap className="text-4xl text-purple-500" /> },
+  { name: "Git", category: "Otros", icon: <SiGit className="text-4xl text-orange-500" /> },
+  { name: "WordPress", category: "Otros", icon: <SiWordpress className="text-4xl text-blue-700" /> },
+  { name: "Android Studio", category: "Otros", icon: <SiAndroidstudio className="text-4xl text-green-500" /> },
+  { name: "Mediapipe", category: "Otros", icon: <SiMediapipe className="text-4xl text-purple-500" /> },
 ];
 
-const categories = ["All", "Frontend", "Backend"];
+const categories = ["All", "Frontend", "Backend", "Otros"];
+
 
 const Skills = ({ onSelectTech, selectedTech }) => {
   // Estado local para la categoría de filtro en las skills

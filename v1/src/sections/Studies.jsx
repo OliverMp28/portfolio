@@ -23,27 +23,27 @@ const Study = ({ title, institution, year, description }) => (
 const Studies = () => {
   const mis_estudios = [
     {
-      title: "Ingeniería en Sistemas Computacionales",
-      institution: "Universidad Tecnológica",
-      year: "2018 - 2022",
-      description: "Especialización en Desarrollo de Software y Bases de Datos.",
+      title: "FPGS Desarrollo de aplicaciones web",
+      institution: "Atlantida Cidep, Granada, España",
+      year: "2024 - 2025",
+      description: "Estudio de grado superior en el desarrollo de software enfocado a la web y las tecnologias que conlleva",
     },
     {
-      title: "Bootcamp de Desarrollo Web Full Stack",
-      institution: "Coding Academy",
-      year: "2023",
-      description: "Intensivo de 12 semanas en tecnologías web modernas.",
+      title: "FPGS Desarrollo de aplicaciones multiplataforma",
+      institution: "Atlantida Cidep - Granada, España",
+      year: "2022 - 2024",
+      description: "Grado superior en el desarrollo enfocado a multipataformas, desde la base de codigo y manejo de datos hasta el desarrollo de interfaces",
     },
     {
-      title: "Certificación en Cloud Computing",
-      institution: "Tech Institute",
-      year: "2024",
+      title: "Ing. de Sistemas",
+      institution: "U.P. San Juan Bautista - Perú",
+      year: "2020 - 2022",
+      description: "Aqui inicie mi carrera profesional, estuve 2 años muy valiosos en esta universidad en la cual senté las bases y el gusto por el desarrollo de software",
     },
-    // Puedes agregar más estudios aquí
   ];
 
   return (
-    <section id="formacion" className="py-16 bg-gray-50 dark:bg-gray-900">
+    <section id="estudios" className="py-16 bg-gray-50 dark:bg-gray-900 scroll-reveal">
       <div className="container mx-auto px-4">
         <h2 className="text-4xl font-bold text-center text-gray-800 dark:text-white mb-12">
           Mi Recorrido Académico
