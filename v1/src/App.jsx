@@ -2,9 +2,13 @@
 import { useState, useEffect } from "react";
 import Navbar from "./components/Navbar";
 import Hero from "./sections/Hero";
+import AboutMe from "./sections/AboutMe";
+import Studies from "./sections/Studies";
 import Projects from "./sections/Projects";
 import Skills from "./sections/Skills";
 import Contact from "./sections/Contact";
+import Footer from "./sections/Footer";
+import TemaToogle from "./components/temaToogle";
 
 function App() {
   const [selectedTech, setSelectedTech] = useState("");
@@ -35,12 +39,20 @@ function App() {
     <div className="min-h-screen bg-gray-50 scroll-smooth dark:bg-gray-900" id="inicio">
       <Navbar />
       <Hero />
+      <AboutMe />
+      <Studies />
       <Skills 
         onSelectTech={(tech) => setSelectedTech(tech)} 
         selectedTech={selectedTech}
       />
       <Projects selectedTech={selectedTech} />
       <Contact />
+      <Footer />
+
+
+      <div className="fixed bottom-5 right-5 flex flex-col space-y-4">
+        <TemaToogle />
+      </div>
     </div>
   );
 }

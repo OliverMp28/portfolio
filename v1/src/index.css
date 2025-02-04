@@ -1,5 +1,12 @@
 @import "tailwindcss";
 
+/* Configura la variante dark para que se active cuando el elemento tenga la clase .dark */
+@custom-variant dark (&:where(.dark, .dark *));
+/* 
+@tailwind base;
+@tailwind components;
+@tailwind utilities; */
+
 
 :root {
   scroll-behavior: smooth;

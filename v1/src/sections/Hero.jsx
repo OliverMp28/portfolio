@@ -24,7 +24,7 @@ const Hero = () => {
             style={{ borderTopColor: "#6366f1" }}
           ></div>
         </div>
-        <h1 className="text-5xl font-bold bg-gradient-to-r from-indigo-600 to-blue-500 bg-clip-text text-transparent">
+        <h1 className="text-5xl font-bold bg-gradient-to-r from-indigo-600 to-blue-500 bg-clip-text text-transparent dark:from-indigo-400">
           Oliver Llauca Galvez
         </h1>
         <p className="text-xl text-gray-600 dark:text-gray-300">Programador FullStack | Software Developer</p>
