@@ -8,7 +8,7 @@ import Projects from "./sections/Projects";
 import Skills from "./sections/Skills";
 import Contact from "./sections/Contact";
 import Footer from "./sections/Footer";
-import TemaToogle from "./components/temaToogle";
+import TemaToogle from "./components/TemaToogle";
 
 function App() {
   const [selectedTech, setSelectedTech] = useState("");
