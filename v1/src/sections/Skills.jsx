@@ -70,7 +70,7 @@ const Skills = ({ onSelectTech, selectedTech }) => {
       </div>
 
       {/* Grid de skills filtradas */}
-      <div className="mt-8 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 px-6">
+      <div id="lista-habilidades" className="mt-8 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 px-6">
         {filteredSkills.map((skill) => (
           <div
             key={skill.name}
@@ -79,8 +79,8 @@ const Skills = ({ onSelectTech, selectedTech }) => {
             }`}
             // Al hacer click, si ya está seleccionado, lo deselecciona (vuelve a mostrar todos)
             onClick={() =>{
+                document.getElementById('lista-habilidades').scrollIntoView({ behavior: 'smooth' })
                 onSelectTech(selectedTech === skill.name ? "" : skill.name)
-                document.getElementById('habilidades').scrollIntoView({ behavior: 'smooth' })
               }
             }
             

@@ -4,18 +4,6 @@ import { FaGithub, FaExpandAlt, FaCompressAlt, FaGlobe, FaExternalLinkAlt } from
 const projectsData = [
   {
     id: 1,
-    title: "Daino",
-    description: "Juego del dinosaurio",
-    fullDescription:
-      "Este es el juego del dinosaurio de google adaptado a web con html, css, js y php. Fue el primer proyecto que hice por gusto propio y por curiosidad de aprender, desarrollado en mis inicios",
-    image: "/img/daino2.png",
-    technologies: ["HTML", "CSS", "JavaScript", "PHP", "MySQL"],
-    links: [
-      { type: "github", url: "https://github.com/OliverMp28/olivermppr" },
-    ],
-  },
-  {
-    id: 2,
     title: "Stellargia",
     description: "App android sobre el espacio.",
     fullDescription:
@@ -25,22 +13,10 @@ const projectsData = [
     links: [
       { type: "drive", url: "https://drive.google.com/file/d/1g98UHf-8d10PhX9Q9FE6trH8AA9SDMLL/view?usp=drive_link" },
     ],
+    
   },
   {
-    id: 3,
-    title: "Tout play cam detection",
-    description: "web de minijuegos con deteccion de gestios por camara.",
-    fullDescription:
-      "Basada en la libreria mediapipe, esta web fue echa a fin de probar el potencial de la deteccion por camara, adaptandola a mover ciertos personajes o controles con los gestos de rostro",
-    image: "/img/tout3.png",
-    technologies: ["HTML", "Bootstrap", "jQuery", "PHP", "Mediapipe", "MySQL"],
-    links: [
-      // { type: "web", url: "https://proyecto3.com" },
-      { type: "github", url: "https://github.com/OliverMp28/proyecto_vision" },
-    ],
-  },
-  {
-    id: 4,
+    id: 2,
     title: "Web tienda de perfumes",
     description: "Tienda basica para venta de perfumes.",
     fullDescription:
@@ -50,6 +26,31 @@ const projectsData = [
     links: [
       { type: "web", url: "https://esenciadeoriente.com/" },
       // { type: "github", url: "https://github.com/OliverMp28/proyecto_vision" },
+    ],
+  },
+  {
+    id: 3,
+    title: "Daino",
+    description: "Juego del dinosaurio",
+    fullDescription:
+      "Este es el juego del dinosaurio de google adaptado a web con html, css, js y php. Fue el primer proyecto que hice por gusto propio y por curiosidad de aprender, desarrollado en mis inicios",
+    image: "/img/daino2.png",
+    technologies: ["HTML", "CSS", "JavaScript", "PHP", "MySQL", "Git"],
+    links: [
+      { type: "github", url: "https://github.com/OliverMp28/olivermppr" },
+    ],
+  },
+  {
+    id: 4,
+    title: "Tout play cam detection",
+    description: "web de minijuegos con deteccion de gestios por camara.",
+    fullDescription:
+      "Basada en la libreria mediapipe, esta web fue echa a fin de probar el potencial de la deteccion por camara, adaptandola a mover ciertos personajes o controles con los gestos de rostro",
+    image: "/img/tout3.png",
+    technologies: ["HTML", "CSS", "Bootstrap", "JavaScript", "jQuery", "PHP", "Mediapipe", "MySQL", "Git"],
+    links: [
+      // { type: "web", url: "https://proyecto3.com" },
+      { type: "github", url: "https://github.com/OliverMp28/proyecto_vision" },
     ],
   },
   // Agrega más proyectos según necesites
@@ -93,6 +94,7 @@ const ProjectCard = ({ project }) => {
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
         <h3 className="absolute bottom-4 left-4 text-xl font-bold text-white">{project.title}</h3>
       </div>
+
       <div className="flex flex-col flex-grow p-6">
         <p className="text-gray-600 dark:text-gray-300 mb-4">
           {expanded ? project.fullDescription : project.description}
@@ -101,7 +103,7 @@ const ProjectCard = ({ project }) => {
           {project.technologies.map((tech) => (
             <span
               key={tech}
-              className="px-3 py-1 bg-indigo-100 dark:bg-indigo-900 text-indigo-600 dark:text-indigo-300 rounded-full text-sm font-medium"
+              className="px-2 py-1 bg-indigo-100 dark:bg-indigo-900 text-indigo-600 dark:text-indigo-300 rounded-full text-xs font-medium"
             >
               {tech}
             </span>
