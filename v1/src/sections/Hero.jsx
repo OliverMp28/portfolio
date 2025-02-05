@@ -15,7 +15,7 @@ const Hero = () => {
       >
         <div className="relative inline-block group">
           <img
-            src="./src/assets/img/foto1.jpg"
+            src="../assets/img/foto1.jpg"
             alt="Oliver Llauca"
             className="w-48 h-48 rounded-full border-4 border-white shadow-xl group-hover:scale-105 transition-all duration-300"
           />
