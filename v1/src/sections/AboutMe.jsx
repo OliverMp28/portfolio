@@ -12,7 +12,7 @@ const AboutMe = () => {
             <div className="w-full h-full bg-blue-500 dark:bg-blue-700 rounded-lg transform rotate-3 absolute top-0 left-0"></div>
             <div className="w-full h-full bg-indigo-500 dark:bg-indigo-700 rounded-lg transform -rotate-3 absolute top-0 left-0"></div>
             <img
-              src="./src/assets/img/escritorio.jpg?height=256&width=256"
+              src="/img/escritorio.jpg?height=256&width=256"
               className="w-full h-full object-cover rounded-lg relative z-10"
             />
           </div>

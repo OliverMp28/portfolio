@@ -8,7 +8,7 @@ const projectsData = [
     description: "Juego del dinosaurio",
     fullDescription:
       "Este es el juego del dinosaurio de google adaptado a web con html, css, js y php. Fue el primer proyecto que hice por gusto propio y por curiosidad de aprender, desarrollado en mis inicios",
-    image: "./src/assets/img/daino2.png",
+    image: "/img/daino2.png",
     technologies: ["HTML", "CSS", "JavaScript", "PHP", "MySQL"],
     links: [
       { type: "github", url: "https://github.com/OliverMp28/olivermppr" },
@@ -20,7 +20,7 @@ const projectsData = [
     description: "App android sobre el espacio.",
     fullDescription:
       "Esta es una app echa en android studio, fue una app basica a fin de aprender y probar el entorno multiplataforma, esta app esta enfocada a mostrar datos curiosos de planetas y constelaciones. ",
-    image: "./src/assets/img/Stellargia.jpg",
+    image: "/img/Stellargia.jpg",
     technologies: ["Android Studio"],
     links: [
       { type: "drive", url: "https://drive.google.com/file/d/1g98UHf-8d10PhX9Q9FE6trH8AA9SDMLL/view?usp=drive_link" },
@@ -32,7 +32,7 @@ const projectsData = [
     description: "web de minijuegos con deteccion de gestios por camara.",
     fullDescription:
       "Basada en la libreria mediapipe, esta web fue echa a fin de probar el potencial de la deteccion por camara, adaptandola a mover ciertos personajes o controles con los gestos de rostro",
-    image: "./src/assets/img/tout3.png",
+    image: "/img/tout3.png",
     technologies: ["HTML", "Bootstrap", "jQuery", "PHP", "Mediapipe", "MySQL"],
     links: [
       // { type: "web", url: "https://proyecto3.com" },
@@ -45,7 +45,7 @@ const projectsData = [
     description: "Tienda basica para venta de perfumes.",
     fullDescription:
       "Esta web fue echa para un vendedor de perfumes arabes echo en wordpress",
-    image: "./src/assets/img/webperfumes.png",
+    image: "/img/webperfumes.png",
     technologies: ["WordPress"],
     links: [
       { type: "web", url: "https://esenciadeoriente.com/" },
