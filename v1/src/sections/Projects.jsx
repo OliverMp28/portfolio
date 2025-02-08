@@ -5,22 +5,21 @@ const projectsData = [
   {
     id: 1,
     title: "Stellargia",
-    description: "App android sobre el espacio.",
+    description: "App Android sobre el espacio.",
     fullDescription:
-      "Esta es una app echa en android studio, fue una app basica a fin de aprender y probar el entorno multiplataforma, esta app esta enfocada a mostrar datos curiosos de planetas y constelaciones. ",
+      "Esta es una app hecha en Android Studio, fue una app básica a fin de aprender y probar el entorno multiplataforma, esta app está enfocada a mostrar datos curiosos de planetas y constelaciones.",
     image: "/img/Stellargia.jpg",
     technologies: ["Android Studio"],
     links: [
       { type: "drive", url: "https://drive.google.com/file/d/1g98UHf-8d10PhX9Q9FE6trH8AA9SDMLL/view?usp=drive_link" },
     ],
-    
   },
   {
     id: 2,
     title: "Web tienda de perfumes",
-    description: "Tienda basica para venta de perfumes.",
+    description: "Tienda básica para venta de perfumes.",
     fullDescription:
-      "Esta web fue echa para un vendedor de perfumes arabes echo en wordpress",
+      "Esta web fue hecha para un vendedor de perfumes árabes hecha en WordPress",
     image: "/img/webperfumes.png",
     technologies: ["WordPress"],
     links: [
@@ -33,7 +32,7 @@ const projectsData = [
     title: "Daino",
     description: "Juego del dinosaurio",
     fullDescription:
-      "Este es el juego del dinosaurio de google adaptado a web con html, css, js y php. Fue el primer proyecto que hice por gusto propio y por curiosidad de aprender, desarrollado en mis inicios",
+      "Este es el juego del dinosaurio de Google adaptado a la web con HTML, CSS, JS y PHP. Fue el primer proyecto que hice por gusto propio y por curiosidad de aprender, desarrollado en mis inicios",
     image: "/img/daino2.png",
     technologies: ["HTML", "CSS", "JavaScript", "PHP", "MySQL", "Git"],
     links: [
@@ -42,10 +41,10 @@ const projectsData = [
   },
   {
     id: 4,
-    title: "Tout play cam detection",
-    description: "web de minijuegos con deteccion de gestios por camara.",
+    title: "Tout Play Cam Detection",
+    description: "web de minijuegos con detección de gestos por cámara.",
     fullDescription:
-      "Basada en la libreria mediapipe, esta web fue echa a fin de probar el potencial de la deteccion por camara, adaptandola a mover ciertos personajes o controles con los gestos de rostro",
+      "Basada en la librería MediaPipe, esta web fue hecha a fin de probar el potencial de la detección por cámara, adaptándola a mover ciertos personajes o controles con los gestos de rostro",
     image: "/img/tout3.png",
     technologies: ["HTML", "CSS", "Bootstrap", "JavaScript", "jQuery", "PHP", "Mediapipe", "MySQL", "Git"],
     links: [

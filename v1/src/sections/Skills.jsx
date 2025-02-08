@@ -45,8 +45,11 @@ const Skills = ({ onSelectTech, selectedTech }) => {
       : skillsData.filter((skill) => skill.category === selectedCategory);
 
   return (
-    <section id="habilidades" className="py-12 bg-gray-50 dark:bg-gray-900 scroll-reveal">
-      <h2 className="text-3xl font-bold text-center text-gray-900 dark:text-gray-200">Habilidades</h2>
+    <section id="habilidades" className="py-1 bg-gray-50 dark:bg-gray-900 scroll-reveal">
+      <h2 className="py-2 text-3xl font-bold text-center text-gray-900 dark:text-gray-200">Habilidades</h2>
+      <p className="text-md font-small text-gray-700 dark:text-gray-400 text-center">
+        Selecciona alguna y verá los proyectos hechos con la tecnologia seleccionada.
+      </p>
 
       {/* Barra de categorías */}
       <div className="flex justify-center gap-4 mt-6">
@@ -70,7 +73,7 @@ const Skills = ({ onSelectTech, selectedTech }) => {
       </div>
 
       {/* Grid de skills filtradas */}
-      <div id="lista-habilidades" className="mt-8 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 px-6">
+      <div id="lista-habilidades" className="mt-8 grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-4 px-4">
         {filteredSkills.map((skill) => (
           <div
             key={skill.name}
@@ -79,7 +82,7 @@ const Skills = ({ onSelectTech, selectedTech }) => {
             }`}
             // Al hacer click, si ya está seleccionado, lo deselecciona (vuelve a mostrar todos)
             onClick={() =>{
-                document.getElementById('lista-habilidades').scrollIntoView({ behavior: 'smooth' })
+                document.getElementById('proyectos').scrollIntoView({ behavior: 'smooth' })
                 onSelectTech(selectedTech === skill.name ? "" : skill.name)
               }
             }

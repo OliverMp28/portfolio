@@ -28,6 +28,76 @@
 
 
 
+
+@keyframes spin-slow {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 8s linear infinite;
+}
+
+
+
+/* @keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes wobble {
+  0%,
+  100% {
+    transform: rotate3d(1, 0, 0, 0deg);
+  }
+  25% {
+    transform: rotate3d(1, 0, 0, 5deg);
+  }
+  75% {
+    transform: rotate3d(1, 0, 0, -5deg);
+  }
+}
+
+.inception-top {
+  animation: spin 10s linear infinite, wobble 5s ease-in-out infinite;
+  transform-origin: center bottom;
+  filter: drop-shadow(0 0 10px rgba(167, 139, 250, 0.5));
+}
+
+.animate-spin-slow {
+  animation: spin 8s linear infinite;
+}
+
+/* Efecto de brillo para la peonza */
+/* @keyframes glow {
+  0%,
+  100% {
+    filter: drop-shadow(0 0 5px rgba(167, 139, 250, 0.5));
+  }
+  50% {
+    filter: drop-shadow(0 0 20px rgba(167, 139, 250, 0.8));
+  }
+}
+
+.inception-top {
+  animation: spin 10s linear infinite, wobble 5s ease-in-out infinite, glow 4s ease-in-out infinite;
+}
+
+/* Mejora la transición del botón */
+/* button {
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 4px 6px rgba(99, 102, 241, 0.5);
+}  */
+
 /*
 a {
   font-weight: 500;

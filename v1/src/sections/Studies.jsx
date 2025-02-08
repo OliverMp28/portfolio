@@ -26,21 +26,22 @@ const Studies = () => {
       title: "FPGS Desarrollo de aplicaciones web",
       institution: "Atlantida Cidep, Granada, España",
       year: "2024 - 2025",
-      description: "Estudio de grado superior en el desarrollo de software enfocado a la web y las tecnologias que conlleva",
+      description: "Estudio de grado superior en el desarrollo de software enfocado a la web y las tecnologías que conlleva",
     },
     {
       title: "FPGS Desarrollo de aplicaciones multiplataforma",
       institution: "Atlantida Cidep - Granada, España",
       year: "2022 - 2024",
-      description: "Grado superior en el desarrollo enfocado a multipataformas, desde la base de codigo y manejo de datos hasta el desarrollo de interfaces",
+      description: "Grado superior en el desarrollo enfocado a multiplataforma, desde la base de código y manejo de datos hasta el desarrollo de interfaces",
     },
     {
       title: "Ing. de Sistemas",
       institution: "U.P. San Juan Bautista - Perú",
       year: "2020 - 2022",
-      description: "Aqui inicie mi carrera profesional, estuve 2 años muy valiosos en esta universidad en la cual senté las bases y el gusto por el desarrollo de software",
+      description: "Aquí inicié mi carrera profesional, estuve 2 años muy valiosos en esta universidad en la cual senté las bases y el gusto por el desarrollo de software",
     },
   ];
+  
 
   return (
     <section id="estudios" className="py-16 bg-gray-50 dark:bg-gray-900 scroll-reveal">

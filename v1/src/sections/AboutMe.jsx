@@ -18,9 +18,10 @@ const AboutMe = () => {
           </div>
           <div className="max-w-md">
             <p className="text-gray-600 dark:text-gray-200 mb-6">
-              Soy un desarrollador de software apasionado por crear soluciones innovadoras y eficientes. Mi experiencia se basa mas que nada en la practica
-              mas que de la laboral, de cierta forma disfruto encontrar errores en el codigo, claro esto si los logro resolver despues. 
-              Mi objetivo es combinar creatividad y escalabilidad para desarrollar aplicaciones.
+            Soy un desarrollador de software apasionado por crear soluciones innovadoras y eficientes. Mi experiencia se basa más que nada en la práctica, 
+             que en lo laboral; de cierta forma, disfruto encontrar errores en el código, claro, si los logro resolver después. 
+             Mi objetivo es combinar creatividad y escalabilidad para desarrollar aplicaciones.
+
             </p>
             <div className="flex justify-center gap-8">
               <div className="text-center">
@@ -29,7 +30,7 @@ const AboutMe = () => {
               </div>
               <div className="text-center">
                 <FaCoffee className="text-3xl text-indigo-500 dark:text-indigo-400 mb-2 mx-auto" />
-                <p className="text-sm text-gray-600 dark:text-gray-400">No amante del Café</p>
+                <p className="text-sm text-gray-600 dark:text-gray-400">Me gusta el Café</p>
               </div>
               <div className="text-center">
                 <FaLightbulb className="text-3xl text-yellow-500 dark:text-yellow-400 mb-2 mx-auto" />
