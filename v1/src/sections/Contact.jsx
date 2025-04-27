@@ -1,47 +1,97 @@
-import { FaGithub, FaLinkedin, FaEnvelope, FaTwitter } from "react-icons/fa"
+import { FaGithub, FaLinkedin, FaEnvelope, FaArrowRight } from "react-icons/fa"
+import { useState } from "react"
 
 const contactLinks = [
-  { icon: FaGithub, url: "https://github.com/OliverMp28", label: "GitHub" },
-  { icon: FaLinkedin, url: "https://www.linkedin.com/in/edwin-llauca-galvez-233417295/", label: "LinkedIn" },
-  { icon: FaEnvelope, url: "mailto:oliverllauca@gmail.com", label: "Email" },
+  { icon: FaGithub, 
+    url: "https://github.com/OliverMp28", 
+    label: "GitHub",
+    description: "Repositorios y proyectos"
+  },
+  { icon: FaLinkedin, 
+    url: "https://www.linkedin.com/in/edwin-llauca-galvez-233417295/", 
+    label: "LinkedIn",
+    description: "perfil profesional"
+  },
+  { icon: FaEnvelope, 
+    url: "mailto:oliverllauca@gmail.com", 
+    label: "Email",
+    description: "Contacto directo"
+  },
   // { icon: FaTwitter, url: "https://twitter.com/tusuario", label: "Twitter" },
 ]
 
-const Contact = () => (
+const Contact = () => {
+  const [ activeLink, setActiveLink ] = useState(null);
+
+  return (
   <section
     id="contacto"
-    className="py-16 bg-gradient-to-r from-blue-500 to-indigo-600 dark:from-blue-800 dark:to-indigo-900 scroll-reveal"
+    className="py-20 bg-gradient-to-br from-gray-50 via-white to-indigo-50 dark:from-gray-900 dark:via-gray-800 dark:to-indigo-900 scroll-reveal"
   >
     <div className="container mx-auto px-4">
-      <h2 className="text-4xl font-bold text-center text-white mb-12">Conectemos</h2>
-      <div className="flex justify-center items-center">
-        <div className="relative w-72 h-72 bg-white dark:bg-gray-800 rounded-full shadow-lg overflow-hidden">
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div className="w-56 h-56 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center">
-              <span className="text-7xl text-blue-500 dark:text-blue-300">:)</span>
+    <div className="max-w-4xl mx-auto bg-white/80 dark:bg-gray-900/30 backdrop-blur-md rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-700 shadow-lg">
+          <div className="grid md:grid-cols-2 gap-0">
+            {/* Lado izquierdo - Título y botones en pequeño para rellanr ese espacio vacio */}
+            <div className="p-8 md:p-12 flex flex-col justify-center">
+              <h2 className="text-4xl font-bold text-gray-800 dark:text-white mb-6">Contacto</h2>
+              <p className="text-gray-600 dark:text-blue-200 mb-8 text-lg">Estos son mis canales de contacto</p>
+
+              <div className="flex flex-wrap gap-3 mt-auto">
+                {contactLinks.map((link, index) => (
+                  <a
+                    key={link.label}
+                    href={link.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-gray-200 dark:bg-gray-600 hover:bg-gray-300 dark:hover:bg-gray-800/80 text-gray-800 dark:text-white transition-all duration-300"
+                    onMouseEnter={() => setActiveLink(index)}
+                    onMouseLeave={() => setActiveLink(null)}
+                    aria-label={link.label}
+                  >
+                    <link.icon className="text-xl" />
+                  </a>
+                ))}
+              </div>
+            </div>
+
+            {/* Lado derecho - Tarjetas de contacto */}
+            <div className="bg-white/10 dark:bg-gray-800/20 p-8 md:p-12">
+              <div className="space-y-6">
+                {contactLinks.map((link, index) => (
+                  <a
+                    key={link.label}
+                    href={link.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`block p-4 rounded-xl transition-all duration-300 border border-transparent hover:border-white/20 dark:hover:border-gray-200/10 ${
+                      activeLink === index
+                        ? "bg-gray-300 dark:bg-gray-200/30"
+                        : "bg-gray-200/60  hover:bg-gray-100/10 dark:bg-gray-200/10 dark:hover:bg-gray-200/10"
+                    }`}
+                    onMouseEnter={() => setActiveLink(index)}
+                    onMouseLeave={() => setActiveLink(null)}
+                  >
+                    <div className="flex items-center">
+                      <div className="w-10 h-10 rounded-lg flex items-center justify-center  bg-blue-500/90 dark:bg-indigo-600 text-white">
+                        <link.icon className="text-lg" />
+                      </div>
+                      <div className="ml-4">
+                        <h3 className="text-gray-800 dark:text-white font-medium">{link.label}</h3>
+                        <p className="text-gray-600 dark:text-blue-200 text-sm mt-1">{link.description}</p>
+                      </div>
+                      <div className="ml-auto">
+                        <FaArrowRight className={`h-5 w-5 text-gray-800 dark:text-white transition-opacity duration-300 ${activeLink === index ? "opacity-100" : "opacity-0"}`} />
+                      </div>
+                    </div>
+                  </a>
+                ))}
+              </div>
             </div>
           </div>
-          {contactLinks.map((link, index) => (
-            <a
-              key={link.label}
-              href={link.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="absolute w-14 h-14 bg-blue-500 dark:bg-blue-700 rounded-full flex items-center justify-center text-white hover:bg-blue-600 dark:hover:bg-blue-600 transition-all duration-300 transform hover:scale-110"
-              style={{
-                top: index === 0 ? "10%" : index === 1 ? "90%" : index === 2 ? "50%" : "50%",
-                left: index === 0 ? "50%" : index === 1 ? "50%" : index === 2 ? "10%" : "90%",
-                transform: "translate(-50%, -50%)",
-              }}
-            >
-              <link.icon className="text-2xl" />
-              <span className="sr-only">{link.label}</span>
-            </a>
-          ))}
         </div>
-      </div>
     </div>
   </section>
-)
+  )
+}
 
 export default Contact

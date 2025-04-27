@@ -13,7 +13,7 @@
   scroll-padding-top: 4rem;
 }
 
-/* Estado inicial: el elemento está oculto y desplazado un poco hacia abajo */
+/* Estado inicial: el elemento esta oculto y desplazado un poco hacia abajo */
 .scroll-reveal {
   opacity: 0;
   transform: translateY(10px);

@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { FaGithub, FaExpandAlt, FaCompressAlt, FaGlobe, FaExternalLinkAlt } from "react-icons/fa"
+import PropTypes from 'prop-types';
 
 const projectsData = [
   {
@@ -7,7 +8,7 @@ const projectsData = [
     title: "Stellargia",
     description: "App Android sobre el espacio.",
     fullDescription:
-      "Esta es una app hecha en Android Studio, fue una app básica a fin de aprender y probar el entorno multiplataforma, esta app está enfocada a mostrar datos curiosos de planetas y constelaciones.",
+      "Esta es una app hecha en Android Studio, fue una app básica a fin de aprender y probar otras plataformas como el entorno movil, esta app está enfocada a mostrar datos curiosos de planetas y constelaciones.",
     image: "/img/Stellargia.jpg",
     technologies: ["Android Studio"],
     links: [
@@ -21,7 +22,7 @@ const projectsData = [
     fullDescription:
       "Esta web fue hecha para un vendedor de perfumes árabes hecha en WordPress",
     image: "/img/webperfumes.png",
-    technologies: ["WordPress"],
+    technologies: ["WordPress", "WooCommerce"],
     links: [
       { type: "web", url: "https://esenciadeoriente.com/" },
       // { type: "github", url: "https://github.com/OliverMp28/proyecto_vision" },
@@ -29,18 +30,31 @@ const projectsData = [
   },
   {
     id: 3,
+    title: "Web inmobiliaria",
+    description: "Web básica de estilo inmobiliaria.",
+    fullDescription:
+      "Esta web fue hecha para un agente inmobiliario, ayudandolo a promocionar sus propiedades, está hecha en WordPress y un plugin llamado estatik.",
+    image: "/img/websinek.png",
+    technologies: ["WordPress"],
+    links: [
+      { type: "web", url: "https://sinekstate.com/" },
+      // { type: "github", url: "https://github.com/OliverMp28/proyecto_vision" },
+    ],
+  },
+  {
+    id: 4,
     title: "Daino",
     description: "Juego del dinosaurio",
     fullDescription:
-      "Este es el juego del dinosaurio de Google adaptado a la web con HTML, CSS, JS y PHP. Fue el primer proyecto que hice por gusto propio y por curiosidad de aprender, desarrollado en mis inicios",
+      "Este es el juego del dinosaurio de Google adaptado a la web con HTML, CSS, JS, PHP, MySQL y Git. Fue el primer proyecto que hice por gusto propio y por curiosidad de aprender, desarrollado en mis inicios",
     image: "/img/daino2.png",
-    technologies: ["HTML", "CSS", "JavaScript", "PHP", "MySQL", "Git"],
+    technologies: ["CSS", "JavaScript", "PHP", "MySQL", "Git"],
     links: [
       { type: "github", url: "https://github.com/OliverMp28/olivermppr" },
     ],
   },
   {
-    id: 4,
+    id: 5,
     title: "Tout Play Cam Detection",
     description: "web de minijuegos con detección de gestos por cámara.",
     fullDescription:
@@ -48,10 +62,22 @@ const projectsData = [
     image: "/img/tout3.png",
     technologies: ["HTML", "CSS", "Bootstrap", "JavaScript", "jQuery", "PHP", "Mediapipe", "MySQL", "Git"],
     links: [
-      // { type: "web", url: "https://proyecto3.com" },
+      { type: "web", url: "https://tout.bernersites.com/" },
       { type: "github", url: "https://github.com/OliverMp28/proyecto_vision" },
     ],
   },
+  {
+    id: 6,
+    title: "Calculadora",
+    description: "Calculadora hecha en Java",
+    fullDescription: "Calculadora hecha en Java, este es uno de los proyectos que hice con este lenguaje en 2023. Dispone de un diseño sencillo y funcional ademas de un instalador .exe que tienen disponible en drive para solo descargarlo.",
+    image: "/img/calculadora.png",
+    technologies: ["Java"],
+    links: [
+      { type: "github", url: "https://github.com/OliverMp28/calculadora-java/tree/main" },
+      { type: "drive", url: "https://drive.google.com/file/d/1Squ-99xo1PIFkGWuEyHpphgdawQ3hcFc/view?usp=sharing" },
+    ],
+  }
   // Agrega más proyectos según necesites
 ]
 
@@ -142,6 +168,18 @@ const ProjectCard = ({ project }) => {
   )
 }
 
+ProjectCard.propTypes = {
+  project: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    title: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    fullDescription: PropTypes.string,
+    image: PropTypes.string,
+    technologies: PropTypes.arrayOf(PropTypes.string).isRequired,
+    links: PropTypes.arrayOf(PropTypes.shape({ type: PropTypes.string.isRequired, url: PropTypes.string.isRequired })).isRequired,
+  }).isRequired,
+};
+
 const Projects = ({ selectedTech }) => {
   const filteredProjects = selectedTech
     ? projectsData.filter((project) => project.technologies.includes(selectedTech))
@@ -160,5 +198,9 @@ const Projects = ({ selectedTech }) => {
     </section>
   )
 }
+
+Projects.propTypes = {
+  selectedTech: PropTypes.string,
+};
 
 export default Projects

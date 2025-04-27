@@ -13,7 +13,7 @@ import TemaToogle from "./components/TemaToogle";
 function App() {
   const [selectedTech, setSelectedTech] = useState("");
 
-  // Efecto para el scroll reveal
+  //efecto para el scroll reveal
   useEffect(() => {
     const revealElements = document.querySelectorAll(".scroll-reveal");
     const observer = new IntersectionObserver(

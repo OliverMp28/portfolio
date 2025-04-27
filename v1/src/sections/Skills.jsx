@@ -1,11 +1,12 @@
 // Skills.jsx
 import { useState } from "react";
-import { FaReact, FaHtml5, FaJsSquare, FaJava } from "react-icons/fa";
+import { FaReact, FaJsSquare, FaJava } from "react-icons/fa";
 import { 
   SiCsswizardry, 
   SiPhp, 
   SiGit, 
   SiWordpress, 
+  SiWoo,
   SiTailwindcss, 
   SiJquery, 
   SiBootstrap, 
@@ -13,10 +14,11 @@ import {
   SiAndroidstudio, 
   SiMediapipe 
 } from "react-icons/si";
+import PropTypes from 'prop-types';
 
 const skillsData = [
   { name: "React", category: "Frontend", icon: <FaReact className="text-4xl text-blue-500" /> },
-  { name: "HTML", category: "Frontend", icon: <FaHtml5 className="text-4xl text-orange-600" /> },
+  // { name: "HTML", category: "Frontend", icon: <FaHtml5 className="text-4xl text-orange-600" /> },
   { name: "CSS", category: "Frontend", icon: <SiCsswizardry className="text-4xl text-purple-600" /> },
   { name: "JavaScript", category: "Frontend", icon: <FaJsSquare className="text-4xl text-yellow-500" /> },
   { name: "PHP", category: "Backend", icon: <SiPhp className="text-4xl text-blue-600" /> },
@@ -27,6 +29,8 @@ const skillsData = [
   { name: "Bootstrap", category: "Frontend", icon: <SiBootstrap className="text-4xl text-purple-500" /> },
   { name: "Git", category: "Otros", icon: <SiGit className="text-4xl text-orange-600" /> },
   { name: "WordPress", category: "Otros", icon: <SiWordpress className="text-4xl text-sky-600" /> },
+  { name: "WooCommerce", category: "Otros", icon: <SiWoo className="text-4xl text-purple-600" /> },
+  // { name: "Estatik", category: "Otros", icon: <FaHome className="text-4xl text-green-500" /> },
   { name: "Android Studio", category: "Otros", icon: <SiAndroidstudio className="text-4xl text-green-600" /> },
   { name: "Mediapipe", category: "Otros", icon: <SiMediapipe className="text-4xl text-cyan-600" /> },
 ];
@@ -80,13 +84,12 @@ const Skills = ({ onSelectTech, selectedTech }) => {
             className={`flex flex-col items-center cursor-pointer transition-transform transform hover:scale-105 ${
               selectedTech === skill.name ? "ring-2 ring-indigo-500 rounded bg-gray-50 dark:bg-indigo-900" : ""
             }`}
-            // Al hacer click, si ya está seleccionado, lo deselecciona (vuelve a mostrar todos)
+            // Al hacer click, si ya esta seleccionado, lo deselecciona (vuelve a mostrar todos)
             onClick={() =>{
                 document.getElementById('proyectos').scrollIntoView({ behavior: 'smooth' })
                 onSelectTech(selectedTech === skill.name ? "" : skill.name)
               }
             }
-            
           >
             {skill.icon}
             <p className="mt-2 text-sm text-gray-600 dark:text-gray-200">{skill.name}</p>
@@ -97,6 +100,9 @@ const Skills = ({ onSelectTech, selectedTech }) => {
   );
 };
 
+Skills.propTypes = {
+  onSelectTech: PropTypes.func.isRequired,
+  selectedTech: PropTypes.string,
+};
+
 export default Skills;
-
-
