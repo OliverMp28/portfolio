@@ -14,7 +14,7 @@ const Footer = () => {
             ></span>
           </div> */}
           <p className="text-sm text-gray-600 dark:text-gray-300">
-            © {new Date().getFullYear()} Oliver Llauca Galvez | Desarrollador Web Creativo
+            © {new Date().getFullYear()} Oliver Llauca Galvez | Programador Web Creativo
           </p>
         </div>
       </footer>

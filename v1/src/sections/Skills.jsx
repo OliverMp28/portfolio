@@ -1,50 +1,56 @@
 // Skills.jsx
 import { useState } from "react";
-import { FaReact, FaJsSquare, FaJava } from "react-icons/fa";
+import { SiMediapipe, SiWoo, SiJquery } from "react-icons/si";
 import { 
-  SiCsswizardry, 
-  SiPhp, 
-  SiGit, 
-  SiWordpress, 
-  SiWoo,
-  SiTailwindcss, 
-  SiJquery, 
-  SiBootstrap, 
-  SiMysql, 
-  SiAndroidstudio, 
-  SiMediapipe 
-} from "react-icons/si";
+  ReactLight,
+  CSSNew,
+  JavaScript,
+  TypeScript,
+  PhpLight,
+  Java,
+  MySQL,
+  TailwindCSS,
+  Bootstrap,
+  Git,
+  WordPress,
+  Android,
+  Bun,
+  Docker
+} from "@ridemountainpig/svgl-react";
 import PropTypes from 'prop-types';
 
 const skillsData = [
-  { name: "React", category: "Frontend", icon: <FaReact className="text-4xl text-blue-500" /> },
-  // { name: "HTML", category: "Frontend", icon: <FaHtml5 className="text-4xl text-orange-600" /> },
-  { name: "CSS", category: "Frontend", icon: <SiCsswizardry className="text-4xl text-purple-600" /> },
-  { name: "JavaScript", category: "Frontend", icon: <FaJsSquare className="text-4xl text-yellow-500" /> },
-  { name: "PHP", category: "Backend", icon: <SiPhp className="text-4xl text-blue-600" /> },
-  { name: "Java", category: "Backend", icon: <FaJava className="text-4xl text-red-600" /> },
-  { name: "MySQL", category: "Backend", icon: <SiMysql className="text-4xl text-sky-500" /> },
-  { name: "Tailwind", category: "Frontend", icon: <SiTailwindcss className="text-4xl text-sky-500" /> },
-  { name: "jQuery", category: "Frontend", icon: <SiJquery className="text-4xl text-sky-700" /> },
-  { name: "Bootstrap", category: "Frontend", icon: <SiBootstrap className="text-4xl text-purple-500" /> },
-  { name: "Git", category: "Otros", icon: <SiGit className="text-4xl text-orange-600" /> },
-  { name: "WordPress", category: "Otros", icon: <SiWordpress className="text-4xl text-sky-600" /> },
-  { name: "WooCommerce", category: "Otros", icon: <SiWoo className="text-4xl text-purple-600" /> },
-  // { name: "Estatik", category: "Otros", icon: <FaHome className="text-4xl text-green-500" /> },
-  { name: "Android Studio", category: "Otros", icon: <SiAndroidstudio className="text-4xl text-green-600" /> },
-  { name: "Mediapipe", category: "Otros", icon: <SiMediapipe className="text-4xl text-cyan-600" /> },
+  { name: "React", category: "Frontend", icon: <ReactLight className="w-8 h-8 text-blue-500 fill-current" /> },
+  // { name: "HTML", category: "Frontend", icon: <Html5Logo className="w-8 h-8 text-orange-600 fill-current" /> },
+  { name: "CSS", category: "Frontend", icon: <CSSNew className="w-8 h-8 text-purple-600 fill-current" /> },
+  { name: "JavaScript", category: "Frontend", icon: <JavaScript className="w-8 h-8 text-yellow-500 fill-current" /> },
+  { name: "PHP", category: "Backend", icon: <PhpLight className="w-8 h-8 text-blue-600 fill-current" /> },
+  { name: "Java", category: "Backend", icon: <Java className="w-8 h-8 text-red-600 fill-current" /> },
+  { name: "MySQL", category: "Backend", icon: <MySQL className="w-8 h-8 text-sky-500 fill-current" /> },
+  { name: "Tailwind", category: "Frontend", icon: <TailwindCSS className="w-8 h-8 text-sky-500 fill-current" /> },
+  { name: "jQuery", category: "Frontend", icon: <SiJquery className="w-8 h-8 text-sky-700 fill-current" /> },
+  { name: "Bootstrap", category: "Frontend", icon: <Bootstrap className="w-8 h-8 text-purple-500 fill-current" /> },
+  { name: "Git", category: "Otros", icon: <Git className="w-8 h-8 text-orange-600 fill-current" /> },
+  { name: "WordPress", category: "Otros", icon: <WordPress className="w-8 h-8 text-sky-600 fill-current" /> },
+  { name: "WooCommerce", category: "Otros", icon: <SiWoo className="w-8 h-8 text-purple-600 fill-current" /> },
+  // { name: "Estatik", category: "Otros", icon: <Svgl name="home" className="w-8 h-8 text-green-500 fill-current" /> },
+  { name: "Android Studio", category: "Otros", icon: <Android className="w-8 h-8 text-green-600 fill-current" /> },
+  { name: "Mediapipe", category: "Otros", icon: <SiMediapipe className="w-8 h-8 text-cyan-600 fill-current" /> },
+  { name: "TypeScript", category: "Frontend", icon: <TypeScript className="w-8 h-8 text-blue-600 fill-current" /> },
+  { name: "Docker", category: "Otros", icon: <Docker className="w-8 h-8 text-blue-500 fill-current" /> },
+  { name: "Bun", category: "Otros", icon: <Bun className="w-8 h-8 text-orange-300 " /> },
 ];
 
-const categories = ["All", "Frontend", "Backend", "Otros"];
+const categories = ["Todas", "Frontend", "Backend", "Otros"];
 
 
 const Skills = ({ onSelectTech, selectedTech }) => {
   // Estado local para la categoría de filtro en las skills
-  const [selectedCategory, setSelectedCategory] = useState("All");
+  const [selectedCategory, setSelectedCategory] = useState("Todas");
 
   // Filtra las skills en función de la categoría seleccionada
   const filteredSkills =
-    selectedCategory === "All"
+    selectedCategory === "Todas"
       ? skillsData
       : skillsData.filter((skill) => skill.category === selectedCategory);
 

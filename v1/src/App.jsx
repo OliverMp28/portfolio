@@ -25,7 +25,7 @@ function App() {
           }
         });
       },
-      { threshold: 0.3 }
+      { threshold: 0.1 }
     );
     revealElements.forEach((el) => observer.observe(el));
 

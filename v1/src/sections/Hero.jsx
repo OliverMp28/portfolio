@@ -20,14 +20,16 @@ const Hero = () => {
         <div className="relative inline-block group">
           <div className="absolute inset-0 bg-indigo-200 rounded-full blur-md transform group-hover:scale-110 transition-transform duration-300"></div>
           <img
-            src="/img/foto1.jpg"
+            src="/img/foto4.jpg"
             alt="Oliver Llauca"
-            className="relative w-48 h-48 rounded-full border-4 border-white shadow-xl group-hover:scale-105 transition-all duration-300"
+            className="relative w-48 h-48 rounded-full border-4 border-[#6366f1] shadow-xl group-hover:scale-105 transition-all duration-300"
           />
+          {/* Comentada la animación de giro
           <div
             className="absolute inset-0 rounded-full border-4 border-transparent animate-spin-slow"
             style={{ borderTopColor: "#6366f1", borderRightColor: "#3b82f6" }}
           ></div>
+          */}
         </div>
         <h1 className="text-5xl font-bold bg-gradient-to-r from-indigo-600 to-blue-500 bg-clip-text text-transparent dark:from-indigo-400 dark:to-blue-300">
           Oliver Llauca Galvez
