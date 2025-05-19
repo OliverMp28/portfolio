@@ -36,11 +36,11 @@ const Typewriter = ({ texts, varDecls, prefix = '', speed = 150 }) => {
   }, []);
 
   return (
-    <div className="w-full max-w-md">
-      <div className="h-6 mb-1 font-mono text-gray-700 dark:text-gray-300 whitespace-nowrap">
+    <div className="w-full overflow-hidden min-w-0 text-sm">
+      <div className="h-6 mb-1 font-mono text-gray-700 dark:text-gray-300 truncate">
         {varDecls[textIndex]}
       </div>
-      <div className="h-6 font-mono">
+      <div className="h-6 font-mono truncate">
         <span className="text-green-600 dark:text-green-300">{prefix}</span>
         <span className="text-blue-600 dark:text-blue-400">{texts[textIndex].substring(0, charIndex)}</span>
         <span className="text-gray-400">{blink ? '|' : ''}</span>
@@ -58,12 +58,12 @@ Typewriter.propTypes = {
 
 const AboutMe = () => {
   return (
-    <section id="sobre-mi" className="py-16 bg-gray-50 dark:bg-gray-900 scroll-reveal">
+    <section id="sobre-mi" className="py-16 bg-gray-50 dark:bg-gray-900 scroll-reveal overflow-x-hidden">
       <div className="container mx-auto px-4">
         <h2 className="text-4xl font-bold text-center text-gray-800 dark:text-white mb-12">
-          El Desarrollador Detrás de la interfaz y el codigo.
+          El Programador detrás de la interfaz y el código.
         </h2>
-        <div className="flex flex-col md:flex-row items-center justify-center gap-12">
+        <div className="flex flex-col md:flex-row items-center justify-center gap-12 overflow-hidden">
           <div className="w-64 h-64 relative">
             <div className="w-full h-full bg-blue-500 dark:bg-blue-700 rounded-lg transform rotate-3 absolute top-0 left-0"></div>
             <div className="w-full h-full bg-indigo-500 dark:bg-indigo-700 rounded-lg transform -rotate-3 absolute top-0 left-0"></div>
@@ -72,11 +72,11 @@ const AboutMe = () => {
               className="w-full h-full object-cover rounded-lg relative z-10"
             />
           </div>
-          <div className="max-w-md">
-            <p className="text-gray-600 dark:text-gray-200 mb-6 text-justify">
+          <div className="w-full max-w-md min-w-0 md:flex-1">
+            <p className="text-gray-600 dark:text-gray-200 mb-6 text-justify break-words">
               Soy programador web con formación oficial, complementada con estudio autodidacta y un año de experiencia. Disfruto diseñar interfaces en el frontend y desarrollar la lógica en el backend para crear aplicaciones creativas y escalables.
             </p>
-            <div className="mt-4 font-mono text-gray-700 dark:text-gray-300 text-lg">
+            <div className="mt-4 font-mono text-gray-700 dark:text-gray-300 text-base w-full overflow-hidden min-w-0">
               <Typewriter
                 texts={[
                   'System.out.println(text);',
@@ -85,7 +85,7 @@ const AboutMe = () => {
                 ]}
                 varDecls={[
                   'String text = "Mira mis proyectos";',
-                  'let text: string = "Desarrollo de software";',
+                  'let text: string = "desarrollo";',
                   '$text = "Programador web";'
                 ]}
                 speed={90}
