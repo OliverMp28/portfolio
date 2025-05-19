@@ -2,48 +2,56 @@ import { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 
 // Typewriter effect para simular escritura y borrado de código
-const Typewriter = ({ texts, prefix = '// ', speed = 150 }) => {
-  const [index, setIndex] = useState(0);
-  const [subIndex, setSubIndex] = useState(0);
+const Typewriter = ({ texts, varDecls, prefix = '', speed = 150 }) => {
+  const [textIndex, setTextIndex] = useState(0);
+  const [charIndex, setCharIndex] = useState(0);
+  const [isDeleting, setIsDeleting] = useState(false);
   const [blink, setBlink] = useState(true);
-  const [reverse, setReverse] = useState(false);
 
+  // Efecto de escritura y borrado
   useEffect(() => {
-    const contentLength = texts[index].length;
-    if (subIndex === contentLength && !reverse) {
-      const timeout = setTimeout(() => setReverse(true), speed * 5);
-      return () => clearTimeout(timeout);
-    }
-    if (subIndex === 0 && reverse) {
-      const timeout = setTimeout(() => {
-        setReverse(false);
-        setIndex((prev) => (prev + 1) % texts.length);
-      }, speed * 2);
-      return () => clearTimeout(timeout);
-    }
-    const typingTimeout = setTimeout(
-      () => setSubIndex((prev) => prev + (reverse ? -1 : 1)),
-      reverse ? speed / 5 : speed
-    );
-    return () => clearTimeout(typingTimeout);
-  }, [subIndex, index, reverse, speed, texts]);
+    const currentText = texts[textIndex];
+    let timer;
 
+    if (!isDeleting && charIndex < currentText.length) {
+      timer = setTimeout(() => setCharIndex((prev) => prev + 1), speed);
+    } else if (!isDeleting && charIndex === currentText.length) {
+      timer = setTimeout(() => setIsDeleting(true), 2000);
+    } else if (isDeleting && charIndex > 0) {
+      timer = setTimeout(() => setCharIndex((prev) => prev - 1), speed / 3);
+    } else if (isDeleting && charIndex === 0) {
+      timer = setTimeout(() => {
+        setIsDeleting(false);
+        setTextIndex((prev) => (prev + 1) % texts.length);
+      }, 500);
+    }
+
+    return () => clearTimeout(timer);
+  }, [charIndex, isDeleting, textIndex, texts, speed]);
+
+  // Parpadeo del cursor
   useEffect(() => {
-    const blinkTimeout = setTimeout(() => setBlink((prev) => !prev), 500);
-    return () => clearTimeout(blinkTimeout);
-  }, [blink]);
+    const blinkInterval = setInterval(() => setBlink((prev) => !prev), 500);
+    return () => clearInterval(blinkInterval);
+  }, []);
 
   return (
-    <span>
-      <span className="text-green-600">{prefix}</span>
-      <span className="text-green-600">{texts[index].substring(0, subIndex)}</span>
-      <span className="text-gray-400">{blink ? '|' : ''}</span>
-    </span>
+    <div className="w-full max-w-md">
+      <div className="h-6 mb-1 font-mono text-gray-700 dark:text-gray-300 whitespace-nowrap">
+        {varDecls[textIndex]}
+      </div>
+      <div className="h-6 font-mono">
+        <span className="text-green-600 dark:text-green-300">{prefix}</span>
+        <span className="text-blue-600 dark:text-blue-400">{texts[textIndex].substring(0, charIndex)}</span>
+        <span className="text-gray-400">{blink ? '|' : ''}</span>
+      </div>
+    </div>
   );
 };
 
 Typewriter.propTypes = {
   texts: PropTypes.arrayOf(PropTypes.string).isRequired,
+  varDecls: PropTypes.arrayOf(PropTypes.string).isRequired,
   prefix: PropTypes.string,
   speed: PropTypes.number,
 };
@@ -68,15 +76,19 @@ const AboutMe = () => {
             <p className="text-gray-600 dark:text-gray-200 mb-6 text-justify">
               Soy programador web con formación oficial, complementada con estudio autodidacta y un año de experiencia. Disfruto diseñar interfaces en el frontend y desarrollar la lógica en el backend para crear aplicaciones creativas y escalables.
             </p>
-            <div className="mt-4 h-6 overflow-hidden whitespace-nowrap font-mono text-gray-700 dark:text-gray-300 text-lg">
+            <div className="mt-4 font-mono text-gray-700 dark:text-gray-300 text-lg">
               <Typewriter
                 texts={[
-                  'System.out.println("Mira mis proyectos");',
-                  'console.log("Hola mundo");',
-                  'echo "Programador web";'
+                  'System.out.println(text);',
+                  'console.log(text);',
+                  'echo $text;'
                 ]}
-                prefix="// "
-                speed={100}
+                varDecls={[
+                  'String text = "Mira mis proyectos";',
+                  'let text: string = "Desarrollo de software";',
+                  '$text = "Programador web";'
+                ]}
+                speed={90}
               />
             </div>
             {/* <div className="flex justify-center gap-6 flex-wrap">

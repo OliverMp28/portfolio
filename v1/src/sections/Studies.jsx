@@ -1,5 +1,5 @@
-import React from "react";
 import { FaGraduationCap } from "react-icons/fa";
+import PropTypes from "prop-types";
 
 const Study = ({ title, institution, year, description }) => (
   <div className="flex items-start mb-8 relative">
@@ -20,6 +20,13 @@ const Study = ({ title, institution, year, description }) => (
   </div>
 );
 
+Study.propTypes = {
+  title: PropTypes.string.isRequired,
+  institution: PropTypes.string.isRequired,
+  year: PropTypes.string.isRequired,
+  description: PropTypes.string,
+};
+
 const Studies = () => {
   const mis_estudios = [
     {
@@ -38,7 +45,7 @@ const Studies = () => {
       title: "Ing. de Sistemas",
       institution: "U.P. San Juan Bautista - Perú",
       year: "2020 - 2022",
-      description: "Aquí inicié mi carrera profesional, estuve 2 años muy valiosos en esta universidad en la cual senté las bases y el gusto por el desarrollo de software",
+      description: "Aquí inicié mi carrera profesional, estuve un par de años muy valiosos en esta universidad en la cual senté las bases y el gusto por el desarrollo de software",
     },
   ];
   

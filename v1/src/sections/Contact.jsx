@@ -8,7 +8,7 @@ const contactLinks = [
     description: "Repositorios y proyectos"
   },
   { icon: FaLinkedin, 
-    url: "https://www.linkedin.com/in/edwin-llauca-galvez-233417295/", 
+    url: "https://www.linkedin.com/in/oliver-l-233417295/", 
     label: "LinkedIn",
     description: "perfil profesional"
   },

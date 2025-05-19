@@ -1,4 +1,5 @@
 import { FaGithub, FaLinkedin } from "react-icons/fa";
+import PropTypes from "prop-types";
 
 const SocialLink = ({ url, icon }) => (
   <a
@@ -10,5 +11,11 @@ const SocialLink = ({ url, icon }) => (
     {icon === "github" ? <FaGithub /> : <FaLinkedin />}
   </a>
 );
+
+
+SocialLink.propTypes = {
+  url: PropTypes.string.isRequired,
+  icon: PropTypes.string.isRequired,
+}
 
 export default SocialLink;

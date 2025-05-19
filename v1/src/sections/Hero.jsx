@@ -45,7 +45,7 @@ const Hero = () => {
             <FaGithub size={28} />
           </a>
           <a
-            href="https://www.linkedin.com/in/edwin-llauca-galvez-233417295/"
+            href="https://www.linkedin.com/in/oliver-l-233417295/"
             target="_blank"
             rel="noopener noreferrer"
             className="text-gray-600 hover:text-indigo-600 dark:text-gray-400 dark:hover:text-indigo-400 transition-all duration-300 transform hover:scale-110"
