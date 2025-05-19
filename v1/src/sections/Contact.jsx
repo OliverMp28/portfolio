@@ -13,7 +13,7 @@ const contactLinks = [
     description: "perfil profesional"
   },
   { icon: FaEnvelope, 
-    url: "mailto:oliverllauca@gmail.com", 
+    url: "mailto:olivermppr@gmail.com", 
     label: "Email",
     description: "Contacto directo"
   },
