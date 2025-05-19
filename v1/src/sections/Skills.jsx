@@ -45,10 +45,10 @@ const categories = ["Todas", "Frontend", "Backend", "Otros"];
 
 
 const Skills = ({ onSelectTech, selectedTech }) => {
-  // Estado local para la categoría de filtro en las skills
+  //estado local para la categoría de filtro en las skills
   const [selectedCategory, setSelectedCategory] = useState("Todas");
 
-  // Filtra las skills en función de la categoría seleccionada
+  //filtra las skills en función de la categoría seleccionada
   const filteredSkills =
     selectedCategory === "Todas"
       ? skillsData
@@ -61,7 +61,7 @@ const Skills = ({ onSelectTech, selectedTech }) => {
         Selecciona alguna y verá los proyectos hechos con la tecnologia seleccionada.
       </p>
 
-      {/* Barra de categorías */}
+      {/*barra de categorías */}
       <div className="flex justify-center gap-4 mt-6">
         {categories.map((cat) => (
           <button
@@ -82,7 +82,7 @@ const Skills = ({ onSelectTech, selectedTech }) => {
         ))}
       </div>
 
-      {/* Grid de skills filtradas */}
+      {/*grid de skills filtradas */}
       <div id="lista-habilidades" className="mt-8 grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-4 px-4">
         {filteredSkills.map((skill) => (
           <div

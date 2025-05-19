@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 
-// Typewriter effect para simular escritura y borrado de código
+//typewriter effect para simular escritura y borrado de codigo
 const Typewriter = ({ texts, varDecls, prefix = '', speed = 150 }) => {
   const [textIndex, setTextIndex] = useState(0);
   const [charIndex, setCharIndex] = useState(0);

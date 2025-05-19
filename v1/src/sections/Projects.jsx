@@ -94,7 +94,7 @@ const projectsData = [
   // Agrega más proyectos según necesites
 ]
 
-// Define el orden de visualización por IDs de proyecto (puedes modificar solo este array)
+//esto define el orden de visualización por IDs de proyecto (puedes modificar solo este array)
 const ordenProyectos = [2,5,4,3,1,6,7];
 
 const ProjectCard = ({ project }) => {

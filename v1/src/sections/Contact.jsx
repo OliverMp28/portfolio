@@ -31,7 +31,7 @@ const Contact = () => {
     <div className="container mx-auto px-4">
     <div className="max-w-4xl mx-auto bg-white/80 dark:bg-gray-900/30 backdrop-blur-md rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-700 shadow-lg">
           <div className="grid md:grid-cols-2 gap-0">
-            {/* Lado izquierdo - Título y botones en pequeño para rellanr ese espacio vacio */}
+            {/* Lado izquierdo - titulo y botones en pequeño para rellanr ese espacio vacio */}
             <div className="p-8 md:p-12 flex flex-col justify-center">
               <h2 className="text-4xl font-bold text-gray-800 dark:text-white mb-6">Contacto</h2>
               <p className="text-gray-600 dark:text-blue-200 mb-8 text-lg">Estos son mis canales de contacto</p>
