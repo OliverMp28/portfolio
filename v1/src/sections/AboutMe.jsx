@@ -8,7 +8,7 @@ const Typewriter = ({ texts, varDecls, prefix = '', speed = 150 }) => {
   const [isDeleting, setIsDeleting] = useState(false);
   const [blink, setBlink] = useState(true);
 
-  // Efecto de escritura y borrado
+  //efecto de escritura y borrado
   useEffect(() => {
     const currentText = texts[textIndex];
     let timer;
