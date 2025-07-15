@@ -6,6 +6,7 @@ import AboutMe from "./sections/AboutMe";
 import Studies from "./sections/Studies";
 import Projects from "./sections/Projects";
 import Skills from "./sections/Skills";
+import Experience from "./sections/Experience";
 import Contact from "./sections/Contact";
 import Footer from "./sections/Footer";
 import TemaToogle from "./components/TemaToogle";
@@ -41,11 +42,12 @@ function App() {
       <Hero />
       <AboutMe />
       <Studies />
+      <Experience onSelectTech={(tech) => setSelectedTech(tech)} selectedTech={selectedTech} />
       <Skills 
         onSelectTech={(tech) => setSelectedTech(tech)} 
         selectedTech={selectedTech}
       />
-      <Projects selectedTech={selectedTech} />
+      <Projects selectedTech={selectedTech} onClearFilter={() => setSelectedTech("")} />
       <Contact />
       <Footer />
 

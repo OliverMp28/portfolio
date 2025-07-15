@@ -1,6 +1,7 @@
 // Skills.jsx
 import { useState } from "react";
 import { SiMediapipe, SiWoo, SiJquery } from "react-icons/si";
+// import { FaCogs } from "react-icons/fa";
 import { 
   ReactLight,
   CSSNew,
@@ -33,6 +34,7 @@ const skillsData = [
   { name: "Git", category: "Otros", icon: <Git className="w-8 h-8 text-orange-600 fill-current" /> },
   { name: "WordPress", category: "Otros", icon: <WordPress className="w-8 h-8 text-sky-600 fill-current" /> },
   { name: "WooCommerce", category: "Otros", icon: <SiWoo className="w-8 h-8 text-purple-600 fill-current" /> },
+  // { name: "Plugins", category: "Otros", icon: <FaCogs className="w-8 h-8 text-gray-500 fill-current" /> },
   // { name: "Estatik", category: "Otros", icon: <Svgl name="home" className="w-8 h-8 text-green-500 fill-current" /> },
   { name: "Android Studio", category: "Otros", icon: <Android className="w-8 h-8 text-green-600 fill-current" /> },
   { name: "Mediapipe", category: "Otros", icon: <SiMediapipe className="w-8 h-8 text-cyan-600 fill-current" /> },

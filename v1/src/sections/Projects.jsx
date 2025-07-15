@@ -23,7 +23,7 @@ const projectsData = [
     fullDescription:
       "Esta web fue hecha para un vendedor de perfumes árabes hecha en WordPress",
     image: "/img/webperfumes.png",
-    technologies: ["WordPress", "WooCommerce"],
+    technologies: ["WordPress", "WooCommerce", "Plugins"],
     links: [
       { type: "web", url: "https://esenciadeoriente.com/" },
       // { type: "github", url: "https://github.com/OliverMp28/proyecto_vision" },
@@ -36,7 +36,7 @@ const projectsData = [
     fullDescription:
       "Esta web fue hecha para un agente inmobiliario, ayudandolo a promocionar sus propiedades, está hecha en WordPress y un plugin llamado estatik.",
     image: "/img/websinek.png",
-    technologies: ["WordPress"],
+    technologies: ["WordPress", "Plugins"],
     links: [
       { type: "web", url: "https://sinekstate.com/" },
       // { type: "github", url: "https://github.com/OliverMp28/proyecto_vision" },
@@ -205,7 +205,7 @@ ProjectCard.propTypes = {
   }).isRequired,
 };
 
-const Projects = ({ selectedTech }) => {
+const Projects = ({ selectedTech, onClearFilter }) => {
   // Filtra según tecnología si está seleccionada
   const proyectosFiltrados = selectedTech
     ? projectsData.filter((proyecto) => proyecto.technologies.includes(selectedTech))
@@ -219,7 +219,23 @@ const Projects = ({ selectedTech }) => {
   return (
     <section id="proyectos" className="py-16 bg-gray-50 dark:bg-gray-900 scroll-reveal">
       <div className="container mx-auto px-4">
-        <h2 className="text-4xl font-bold text-center text-gray-900 dark:text-white mb-12">Mis Proyectos</h2>
+                  <h2 className="text-4xl font-bold text-center text-gray-900 dark:text-white mb-6">Mis Proyectos</h2>
+
+          {selectedTech && (
+            <div className="mb-8 text-center">
+              <span className="inline-flex items-center gap-3 px-4 py-2 bg-gray-200 dark:bg-gray-700 rounded-full text-sm">
+                <span className="font-medium text-gray-700 dark:text-gray-300">Filtrando por:</span>
+                <span className="font-bold text-indigo-600 dark:text-indigo-400">{selectedTech}</span>
+                <button 
+                  onClick={onClearFilter} 
+                  className="ml-2 text-xl text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition-colors duration-200"
+                  aria-label="Limpiar filtro"
+                >
+                  &times;
+                </button>
+              </span>
+            </div>
+          )}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {proyectosOrdenados.map((proyecto) => (
             <ProjectCard key={proyecto.id} project={proyecto} />
@@ -232,6 +248,7 @@ const Projects = ({ selectedTech }) => {
 
 Projects.propTypes = {
   selectedTech: PropTypes.string,
+  onClearFilter: PropTypes.func.isRequired,
 };
 
 export default Projects
