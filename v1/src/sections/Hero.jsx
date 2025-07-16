@@ -1,10 +1,10 @@
-"use client"
-
 import { useState, useEffect } from "react"
-import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa"
+import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
+import DownloadCVButton from "../components/DownloadCVButton";
 
 const Hero = () => {
-  const [isVisible, setIsVisible] = useState(false)
+  const [isVisible, setIsVisible] = useState(false);
+  const [isCopied, setIsCopied] = useState(false);
 
   useEffect(() => {
     setIsVisible(true)
@@ -24,17 +24,14 @@ const Hero = () => {
             alt="Oliver Llauca"
             className="relative w-48 h-48 rounded-full border-4 border-[#6366f1] shadow-xl group-hover:scale-105 transition-all duration-300"
           />
-          {/* Comentada la animación de giro
-          <div
-            className="absolute inset-0 rounded-full border-4 border-transparent animate-spin-slow"
-            style={{ borderTopColor: "#6366f1", borderRightColor: "#3b82f6" }}
-          ></div>
-          */}
         </div>
+
         <h1 className="text-5xl font-bold bg-gradient-to-r from-indigo-600 to-blue-500 bg-clip-text text-transparent dark:from-indigo-400 dark:to-blue-300">
           Oliver Llauca Galvez
         </h1>
+
         <p className="text-xl text-gray-600 dark:text-gray-300">Programador FullStack | Software Developer</p>
+
         <div className="flex justify-center space-x-6">
           <a
             href="https://github.com/OliverMp28"
@@ -52,21 +49,38 @@ const Hero = () => {
           >
             <FaLinkedin size={28} />
           </a>
-          <a
-            href="mailto:oliverllauca@gmail.com"
-            className="text-gray-600 hover:text-indigo-600 dark:text-gray-400 dark:hover:text-indigo-400 transition-all duration-300 transform hover:scale-110"
-          >
-            <FaEnvelope size={28} />
-          </a>
+          <div className="relative">
+            <button
+              onClick={() => {
+                navigator.clipboard.writeText('olivermppr@gmail.com');
+                setIsCopied(true);
+                setTimeout(() => setIsCopied(false), 2000);
+              }}
+              title="Copiar email"
+              className="text-gray-600 hover:text-indigo-600 dark:text-gray-400 dark:hover:text-indigo-400 transition-all duration-300 transform hover:scale-110 focus:outline-none"
+            >
+              <FaEnvelope size={28} />
+            </button>
+            {isCopied && (
+              <div className="absolute -top-9 left-1/2 -translate-x-1/2 px-2 py-1 bg-gray-900 text-white text-xs rounded-md shadow-lg transition-opacity duration-300">
+                ¡Copiado!
+              </div>
+            )}
+          </div>
         </div>
-        <button
-          className="mt-8 px-8 py-3 bg-gradient-to-r from-indigo-600 to-blue-500 text-white rounded-full hover:from-indigo-700 hover:to-blue-600 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 cursor-pointer transform hover:scale-105 shadow-md hover:shadow-lg"
-          onClick={() => {
-            document.getElementById("proyectos")?.scrollIntoView({ behavior: "smooth" })
-          }}
-        >
-          Ver mis Proyectos
-        </button>
+
+        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-8">
+          <button
+            className="px-8 py-3 bg-gradient-to-r from-indigo-600 to-blue-500 text-white rounded-full hover:from-indigo-700 hover:to-blue-600 transition-all duration-300 focus:outline-none cursor-pointer transform hover:scale-105 shadow-md hover:shadow-lg"
+            onClick={() => {
+              document.getElementById("proyectos")?.scrollIntoView({ behavior: "smooth" })
+            }}
+          >
+            Ver mis Proyectos
+          </button>
+
+          <DownloadCVButton className="px-8 py-3" iconSize={16} />
+        </div>
       </div>
     </section>
   )
