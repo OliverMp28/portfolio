@@ -57,6 +57,26 @@ Typewriter.propTypes = {
 };
 
 const AboutMe = () => {
+  const [imageSrc, setImageSrc] = useState('/img/portada3.png'); // Imagen por defecto (modo oscuro)
+
+  useEffect(() => {
+    const updateImage = () => {
+      const isDarkMode = document.documentElement.classList.contains('dark');
+      setImageSrc(isDarkMode ? '/img/portada3.jpg' : '/img/portada3_dia.png');
+    };
+
+    updateImage(); // Llama al inicio para establecer la imagen correcta
+
+    const observer = new MutationObserver(updateImage);
+
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['class'],
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <section id="sobre-mi" className="py-16 bg-gray-50 dark:bg-gray-900 scroll-reveal overflow-x-hidden">
       <div className="container mx-auto px-4">
@@ -68,7 +88,8 @@ const AboutMe = () => {
             <div className="w-full h-full bg-blue-500 dark:bg-blue-700 rounded-lg transform rotate-3 absolute top-0 left-0"></div>
             <div className="w-full h-full bg-indigo-500 dark:bg-indigo-700 rounded-lg transform -rotate-3 absolute top-0 left-0"></div>
             <img
-              src="/img/portada3.jpg?height=256&width=256"
+              src={imageSrc}
+              alt="Oliver Llauca"
               className="w-full h-full object-cover rounded-lg relative z-10"
             />
           </div>

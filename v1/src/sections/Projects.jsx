@@ -52,6 +52,7 @@ const projectsData = [
     technologies: ["CSS", "JavaScript", "PHP", "MySQL", "Git"],
     links: [
       { type: "github", url: "https://github.com/OliverMp28/olivermppr" },
+      { type: "web", url: "https://daino.bernersites.com/" },
     ],
   },
   {
@@ -95,11 +96,11 @@ const projectsData = [
 ]
 
 //esto define el orden de visualización por IDs de proyecto (puedes modificar solo este array)
-const ordenProyectos = [2,5,4,3,1,6,7];
+const ordenProyectos = [2, 5, 4, 3, 1, 6, 7]
 
 const ProjectCard = ({ project }) => {
   const [expanded, setExpanded] = useState(false)
-  const isInDevelopment = project.inDevelopment === true // proyectos en desarrollo
+  const isInDevelopment = project.inDevelopment === true
 
   const getLinkIcon = (type) => {
     switch (type) {
@@ -128,64 +129,92 @@ const ProjectCard = ({ project }) => {
   }
 
   return (
-    <div className={`relative flex flex-col ${isInDevelopment ? 'bg-gray-100 dark:bg-gray-900 border-2 border-dashed border-yellow-400 dark:border-yellow-600' : 'bg-white dark:bg-gray-800'} rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden`}>
+    <div
+      className={`group relative flex flex-col ${isInDevelopment ? "bg-gray-100 dark:bg-gray-900 border-2 border-dashed border-yellow-400 dark:border-yellow-600" : "bg-white dark:bg-gray-800"} rounded-xl shadow-lg transition-all duration-500 overflow-hidden`}
+    >
+      {/* Header con imagen */}
       <div className="relative h-48 overflow-hidden">
         {isInDevelopment && (
           <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center z-10">
-            <span className="text-yellow-300 text-xl font-bold flex items-center gap-2"><FiAlertCircle /> En desarrollo</span>
+            <span className="text-yellow-300 text-xl font-bold flex items-center gap-2">
+              <FiAlertCircle className="animate-pulse" /> En desarrollo
+            </span>
           </div>
         )}
         <img
           src={project.image || "/placeholder.svg"}
           alt={`Proyecto ${project.id}`}
-          className={`w-full h-full object-cover transition-transform duration-300 hover:scale-110 ${isInDevelopment ? 'opacity-70 filter dark:brightness-75' : ''}`}
+          className={`w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 ${isInDevelopment ? "opacity-70 filter dark:brightness-75" : ""}`}
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-        <h3 className="absolute bottom-4 left-4 text-xl font-bold text-white">{project.title}</h3>
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+        <h3 className="absolute bottom-4 left-4 text-xl font-bold text-white drop-shadow-lg">{project.title}</h3>
       </div>
 
+      {/* contenido */}
       <div className="flex flex-col flex-grow p-6">
-        <p className="text-gray-600 dark:text-gray-300 mb-4 text-justify">
-          {expanded ? project.fullDescription : project.description}
-        </p>
-        <div className="flex flex-wrap gap-2 mb-4">
-          {project.technologies.map((tech) => (
+        <div className="mb-4 relative">
+          <div
+            className={`text-gray-600 dark:text-gray-300 text-justify leading-relaxed transition-all duration-500 ease-in-out overflow-hidden ${
+              expanded ? "max-h-96 opacity-100" : "max-h-20 opacity-90"
+            }`}
+          >
+            <div className={`transition-opacity duration-300 ${expanded ? "opacity-100" : "opacity-0 absolute"}`}>
+              {expanded && project.fullDescription}
+            </div>
+            <div className={`transition-opacity duration-300 ${!expanded ? "opacity-100" : "opacity-0"}`}>
+              {!expanded && project.description}
+            </div>
+          </div>
+        </div>
+
+        {/* tecnologías */}
+        <div className="flex flex-wrap gap-2 mb-6">
+          {project.technologies.map((tech, index) => (
             <span
               key={tech}
-              className="px-2 py-1 bg-indigo-100 dark:bg-indigo-900 text-indigo-600 dark:text-indigo-300 rounded-full text-xs font-medium"
+              className="px-3 py-1 bg-indigo-100 dark:bg-indigo-900 text-indigo-700 dark:text-indigo-300 rounded-full text-xs font-medium cursor-pointer"
+              style={{ animationDelay: `${index * 100}ms` }}
             >
               {tech}
             </span>
           ))}
         </div>
-        <div className="mt-auto pt-4 border-t border-gray-200 dark:border-gray-700 flex items-center justify-between">
-          <button
-            onClick={() => setExpanded(!expanded)}
-            className="cursor-pointer flex items-center gap-2 text-indigo-600 dark:text-indigo-400 hover:text-indigo-800 dark:hover:text-indigo-300 transition-colors"
-          >
-            {expanded ? (
-              <>
-                <FaCompressAlt /> Ver menos
-              </>
-            ) : (
-              <>
-                <FaExpandAlt /> Ver más
-              </>
-            )}
-          </button>
-          <div className="flex gap-4">
-            {project.links.map((link, index) => (
-              <a
-                key={index}
-                href={link.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 text-indigo-600 dark:text-indigo-400 hover:text-indigo-800 dark:hover:text-indigo-300 transition-colors"
-              >
-                {getLinkIcon(link.type)} {getLinkText(link.type)}
-              </a>
-            ))}
+
+        {/* botones reorganizados */}
+        <div className="mt-auto space-y-4">
+          <div className="flex justify-center">
+            <button
+              onClick={() => setExpanded(!expanded)}
+              className="group/btn flex items-center gap-2 px-4 py-1 bg-indigo-50 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 rounded-lg transition-all duration-300 border border-indigo-200 dark:border-indigo-700 cursor-pointer"
+            >
+              <span className="transition-transform duration-300 group-hover/btn:scale-110">
+                {expanded ? <FaCompressAlt /> : <FaExpandAlt />}
+              </span>
+              <span className="font-medium">{expanded ? "Ver menos" : "Ver más"}</span>
+            </button>
           </div>
+
+          {/* Enlaces - Responsive layout */}
+          {project.links.length > 0 && (
+            <div className="pt-4 border-t border-gray-200 dark:border-gray-700">
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+                {project.links.map((link, index) => (
+                  <a
+                    key={index}
+                    href={link.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group/link flex items-center justify-center gap-2 px-3 py-1 bg-gray-50 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-lg transition-all duration-300 border border-gray-200 dark:border-gray-600 cursor-pointer"
+                  >
+                    <span className="transition-transform duration-300 group-hover/link:scale-110">
+                      {getLinkIcon(link.type)}
+                    </span>
+                    <span className="font-medium text-sm">{getLinkText(link.type)}</span>
+                  </a>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </div>
@@ -200,42 +229,46 @@ ProjectCard.propTypes = {
     fullDescription: PropTypes.string,
     image: PropTypes.string,
     technologies: PropTypes.arrayOf(PropTypes.string).isRequired,
-    links: PropTypes.arrayOf(PropTypes.shape({ type: PropTypes.string.isRequired, url: PropTypes.string.isRequired })).isRequired,
+    links: PropTypes.arrayOf(
+      PropTypes.shape({
+        type: PropTypes.string.isRequired,
+        url: PropTypes.string.isRequired,
+      }),
+    ).isRequired,
     inDevelopment: PropTypes.bool,
   }).isRequired,
-};
+}
 
 const Projects = ({ selectedTech, onClearFilter }) => {
-  // Filtra según tecnología si está seleccionada
   const proyectosFiltrados = selectedTech
     ? projectsData.filter((proyecto) => proyecto.technologies.includes(selectedTech))
     : projectsData
 
-  // Ordena según array de IDs sin cortar/pegar
   const proyectosOrdenados = [...proyectosFiltrados].sort(
-    (a,b) => ordenProyectos.indexOf(a.id) - ordenProyectos.indexOf(b.id)
+    (a, b) => ordenProyectos.indexOf(a.id) - ordenProyectos.indexOf(b.id),
   )
 
   return (
-    <section id="proyectos" className="py-16 bg-gray-50 dark:bg-gray-900 scroll-reveal">
+    <section id="proyectos" className="py-16 bg-gray-50 dark:bg-gray-900">
       <div className="container mx-auto px-4">
-                  <h2 className="text-4xl font-bold text-center text-gray-900 dark:text-white mb-6">Mis Proyectos</h2>
+        <h2 className="text-4xl font-bold text-center text-gray-900 dark:text-white mb-6">Mis Proyectos</h2>
 
-          {selectedTech && (
-            <div className="mb-8 text-center">
-              <span className="inline-flex items-center gap-3 px-4 py-2 bg-gray-200 dark:bg-gray-700 rounded-full text-sm">
-                <span className="font-medium text-gray-700 dark:text-gray-300">Filtrando por:</span>
-                <span className="font-bold text-indigo-600 dark:text-indigo-400">{selectedTech}</span>
-                <button 
-                  onClick={onClearFilter} 
-                  className="ml-2 text-xl text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition-colors duration-200"
-                  aria-label="Limpiar filtro"
-                >
-                  &times;
-                </button>
-              </span>
-            </div>
-          )}
+        {selectedTech && (
+          <div className="mb-8 text-center">
+            <span className="inline-flex items-center gap-3 px-4 py-2 bg-gray-200 dark:bg-gray-700 rounded-full text-sm">
+              <span className="font-medium text-gray-700 dark:text-gray-300">Filtrando por:</span>
+              <span className="font-bold text-indigo-600 dark:text-indigo-400">{selectedTech}</span>
+              <button
+                onClick={onClearFilter}
+                className="ml-2 text-xl text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition-colors duration-200"
+                aria-label="Limpiar filtro"
+              >
+                &times;
+              </button>
+            </span>
+          </div>
+        )}
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {proyectosOrdenados.map((proyecto) => (
             <ProjectCard key={proyecto.id} project={proyecto} />
@@ -249,6 +282,7 @@ const Projects = ({ selectedTech, onClearFilter }) => {
 Projects.propTypes = {
   selectedTech: PropTypes.string,
   onClearFilter: PropTypes.func.isRequired,
-};
+}
 
 export default Projects
+
