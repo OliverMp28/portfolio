@@ -25,8 +25,7 @@ const projectsData = [
     image: "/img/webperfumes.png",
     technologies: ["WordPress", "WooCommerce", "Plugins"],
     links: [
-      { type: "web", url: "https://esenciadeoriente.com/" },
-      // { type: "github", url: "https://github.com/OliverMp28/proyecto_vision" },
+      // { type: "web", url: "https://esenciadeoriente.com/" },
     ],
   },
   {
@@ -38,8 +37,7 @@ const projectsData = [
     image: "/img/websinek.png",
     technologies: ["WordPress", "Plugins"],
     links: [
-      { type: "web", url: "https://sinekstate.com/" },
-      // { type: "github", url: "https://github.com/OliverMp28/proyecto_vision" },
+      // { type: "web", url: "https://sinekstate.com/" },
     ],
   },
   {
@@ -52,7 +50,7 @@ const projectsData = [
     technologies: ["CSS", "JavaScript", "PHP", "MySQL", "Git"],
     links: [
       { type: "github", url: "https://github.com/OliverMp28/olivermppr" },
-      { type: "web", url: "https://daino.bernersites.com/" },
+      // { type: "web", url: "https://daino.bernersites.com/" },
     ],
   },
   {
@@ -64,7 +62,7 @@ const projectsData = [
     image: "/img/tout3.png",
     technologies: ["CSS", "Bootstrap", "JavaScript", "jQuery", "PHP", "Mediapipe", "MySQL", "Git"],
     links: [
-      { type: "web", url: "https://tout.bernersites.com/" },
+      // { type: "web", url: "https://tout.bernersites.com/" },
       { type: "github", url: "https://github.com/OliverMp28/proyecto_vision" },
     ],
   },
@@ -84,7 +82,7 @@ const projectsData = [
     id: 7,
     title: "Portal Inmobiliario",
     description: "Aplicación web portal inmobiliario (en desarrollo)",
-    fullDescription: "Portal inmobiliario con frontend en React/TypeScript y backend en PHP separados mediante API HTTP. Es un proyecto de fin de curso actualmente en desarrollo y pronto disponible.",
+    fullDescription: "Portal inmobiliario con frontend en React/TypeScript y backend en PHP separados mediante API HTTP. Aún en desarrollo.",
     image: "/img/placeholder.svg",
     technologies: ["React", "TypeScript", "Tailwind", "CSS", "PHP", "Bun", "Git", "MySQL", "Docker"],
     inDevelopment: true,
