@@ -8,7 +8,7 @@ const DownloadCVButton = ({ className = '', iconSize = 16 }) => {
 
   return (
     <a
-      href="/cv/cv oliver llauca galvez.pdf"
+      href="/cv/cv oliver llauca galvez2.pdf"
       download="Oliver_Llauca_CV.pdf"
       className={`${baseClasses} ${className}`.trim()}
     >
